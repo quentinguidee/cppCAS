@@ -1,9 +1,9 @@
 #define CATCH_CONFIG_MAIN
 #include <catch2/catch.hpp>
 
-#include <nodes/node.hpp>
-#include <nodes/power.hpp>
-#include <nodes/values/integer.hpp>
+#include <core/nodes/node.hpp>
+#include <core/nodes/power.hpp>
+#include <core/nodes/values/integer.hpp>
 
 TEST_CASE("Tests started", "[TESTS]")
 {
