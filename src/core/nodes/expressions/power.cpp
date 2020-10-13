@@ -1,6 +1,6 @@
 #include "power.hpp"
 
-Power::Power(Node *base, Node *power)
+Power::Power(Expression *base, Expression *power)
 {
     this->base = base;
     this->power = power;

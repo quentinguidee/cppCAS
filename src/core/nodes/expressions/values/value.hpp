@@ -1,9 +1,9 @@
 #ifndef VALUE_HPP
 #define VALUE_HPP
 
-#include "../node.hpp"
+#include "../expression.hpp"
 
-class Value : public Node
+class Value : public Expression
 {
 private:
 public:
