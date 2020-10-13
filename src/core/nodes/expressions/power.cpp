@@ -1,9 +1,7 @@
 #include "power.hpp"
 
-Power::Power(Expression *base, Expression *power)
+Power::Power(Expression &base, Expression &power) : base(base), power(power)
 {
-    this->base = base;
-    this->power = power;
 }
 
 Power::~Power()
@@ -12,10 +10,10 @@ Power::~Power()
 
 std::string Power::ToString()
 {
-    return base->ToString() + "^" + power->ToString();
+    return base.ToString() + "^" + power.ToString();
 }
 
 std::string Power::ToLaTeX()
 {
-    return "{" + base->ToLaTeX() + "}^{" + power->ToLaTeX() + "}";
+    return "{" + base.ToLaTeX() + "}^{" + power.ToLaTeX() + "}";
 }

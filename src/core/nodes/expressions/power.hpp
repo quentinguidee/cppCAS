@@ -6,11 +6,11 @@
 class Power : public Expression
 {
 private:
-    Expression *base;
-    Expression *power;
+    Expression &base;
+    Expression &power;
 
 public:
-    Power(Expression *base, Expression *power);
+    Power(Expression &base, Expression &power);
     ~Power();
     std::string ToString();
     std::string ToLaTeX();

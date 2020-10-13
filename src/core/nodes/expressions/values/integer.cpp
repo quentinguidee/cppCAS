@@ -1,8 +1,7 @@
 #include "integer.hpp"
 
-Integer::Integer(int value)
+Integer::Integer(int value) : value(value)
 {
-    this->value = value;
 }
 
 Integer::~Integer()
