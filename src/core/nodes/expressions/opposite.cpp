@@ -4,10 +4,6 @@ Opposite::Opposite(Expression &argument) : argument(argument)
 {
 }
 
-Opposite::~Opposite()
-{
-}
-
 std::string Opposite::ToString()
 {
     return "-" + argument.ToString();

@@ -11,7 +11,7 @@ private:
 
 public:
     Power(Expression &base, Expression &power);
-    ~Power();
+    ~Power(){};
     std::string ToString();
     std::string ToLaTeX();
 };

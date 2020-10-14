@@ -7,8 +7,8 @@ class Node
 {
 private:
 public:
-    Node();
-    ~Node();
+    Node(){};
+    ~Node(){};
     virtual std::string ToString() = 0;
     virtual std::string ToLaTeX() = 0;
 };

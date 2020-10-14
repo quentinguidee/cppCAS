@@ -10,7 +10,7 @@ private:
 
 public:
     Opposite(Expression &argument);
-    ~Opposite();
+    ~Opposite(){};
     std::string ToString();
     std::string ToLaTeX();
 };

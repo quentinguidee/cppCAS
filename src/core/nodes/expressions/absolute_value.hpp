@@ -10,7 +10,7 @@ private:
 
 public:
     AbsoluteValue(Expression &argument);
-    ~AbsoluteValue();
+    ~AbsoluteValue(){};
     std::string ToString();
     std::string ToLaTeX();
 };

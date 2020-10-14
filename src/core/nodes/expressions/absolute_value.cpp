@@ -4,10 +4,6 @@ AbsoluteValue::AbsoluteValue(Expression &argument) : argument(argument)
 {
 }
 
-AbsoluteValue::~AbsoluteValue()
-{
-}
-
 std::string AbsoluteValue::ToString()
 {
     return "|" + argument.ToString() + "|";

@@ -10,7 +10,7 @@ private:
 
 public:
     Integer(int value);
-    ~Integer();
+    ~Integer(){};
     std::string ToString();
     std::string ToLaTeX();
 };
