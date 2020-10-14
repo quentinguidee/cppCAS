@@ -4,12 +4,12 @@ Integer::Integer(int value) : value(value)
 {
 }
 
-std::string Integer::ToString()
+std::string Integer::toString()
 {
     return std::to_string(value);
 }
 
-std::string Integer::ToLaTeX()
+std::string Integer::toLaTeX()
 {
-    return ToString();
+    return toString();
 }

@@ -4,12 +4,12 @@ Power::Power(Expression &base, Expression &power) : base(base), power(power)
 {
 }
 
-std::string Power::ToString()
+std::string Power::toString()
 {
-    return base.ToString() + "^" + power.ToString();
+    return base.toString() + "^" + power.toString();
 }
 
-std::string Power::ToLaTeX()
+std::string Power::toLaTeX()
 {
-    return "{" + base.ToLaTeX() + "}^{" + power.ToLaTeX() + "}";
+    return "{" + base.toLaTeX() + "}^{" + power.toLaTeX() + "}";
 }

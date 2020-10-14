@@ -11,8 +11,8 @@ private:
 public:
     Integer(int value);
     ~Integer(){};
-    std::string ToString() override;
-    std::string ToLaTeX() override;
+    std::string toString() override;
+    std::string toLaTeX() override;
 };
 
 #endif /* INTEGER_HPP */

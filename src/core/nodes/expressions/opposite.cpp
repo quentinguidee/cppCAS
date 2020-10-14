@@ -4,12 +4,12 @@ Opposite::Opposite(Expression &argument) : argument(argument)
 {
 }
 
-std::string Opposite::ToString()
+std::string Opposite::toString()
 {
-    return "-" + argument.ToString();
+    return "-" + argument.toString();
 }
 
-std::string Opposite::ToLaTeX()
+std::string Opposite::toLaTeX()
 {
-    return "-" + argument.ToLaTeX();
+    return "-" + argument.toLaTeX();
 }

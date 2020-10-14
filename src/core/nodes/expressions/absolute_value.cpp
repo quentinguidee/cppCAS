@@ -4,12 +4,12 @@ AbsoluteValue::AbsoluteValue(Expression &argument) : argument(argument)
 {
 }
 
-std::string AbsoluteValue::ToString()
+std::string AbsoluteValue::toString()
 {
-    return "|" + argument.ToString() + "|";
+    return "|" + argument.toString() + "|";
 }
 
-std::string AbsoluteValue::ToLaTeX()
+std::string AbsoluteValue::toLaTeX()
 {
-    return "\\left\\mid" + argument.ToLaTeX() + "\\right\\mid";
+    return "\\left\\mid" + argument.toLaTeX() + "\\right\\mid";
 }

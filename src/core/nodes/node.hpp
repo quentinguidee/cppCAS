@@ -9,8 +9,8 @@ private:
 public:
     Node(){};
     ~Node(){};
-    virtual std::string ToString() = 0;
-    virtual std::string ToLaTeX() = 0;
+    virtual std::string toString() = 0;
+    virtual std::string toLaTeX() = 0;
 };
 
 #endif /* NODE_HPP */

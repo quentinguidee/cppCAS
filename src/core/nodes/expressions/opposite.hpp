@@ -11,8 +11,8 @@ private:
 public:
     Opposite(Expression &argument);
     ~Opposite(){};
-    std::string ToString() override;
-    std::string ToLaTeX() override;
+    std::string toString() override;
+    std::string toLaTeX() override;
 };
 
 #endif /* OPPOSITE_HPP */
