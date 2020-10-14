@@ -3,6 +3,7 @@
 
 #include <core/nodes/node.hpp>
 #include <core/nodes/expressions/power.hpp>
+#include <core/nodes/expressions/absolute_value.hpp>
 #include <core/nodes/expressions/values/integer.hpp>
 
 TEST_CASE("Power", "[CORE]")
@@ -12,4 +13,12 @@ TEST_CASE("Power", "[CORE]")
     Power power = Power(int1, int2);
     REQUIRE(power.ToString() == "2^3");
     REQUIRE(power.ToLaTeX() == "{2}^{3}");
+}
+
+TEST_CASE("Absolute value", "[CORE]")
+{
+    Integer int1 = Integer(-3);
+    AbsoluteValue abs = AbsoluteValue(int1);
+    REQUIRE(abs.ToString() == "|-3|");
+    REQUIRE(abs.ToLaTeX() == "\\left\\mid-3\\right\\mid");
 }
