@@ -2,8 +2,11 @@
 #include "catch.hpp"
 
 #include <core/nodes/node.hpp>
-#include <core/nodes/expressions/power.hpp>
+
 #include <core/nodes/expressions/absolute_value.hpp>
+#include <core/nodes/expressions/opposite.hpp>
+#include <core/nodes/expressions/power.hpp>
+
 #include <core/nodes/expressions/values/integer.hpp>
 
 TEST_CASE("Power", "[CORE]")
@@ -21,4 +24,12 @@ TEST_CASE("Absolute value", "[CORE]")
     AbsoluteValue abs = AbsoluteValue(int1);
     REQUIRE(abs.ToString() == "|-3|");
     REQUIRE(abs.ToLaTeX() == "\\left\\mid-3\\right\\mid");
+}
+
+TEST_CASE("Opposite", "[CORE]")
+{
+    Integer int1 = Integer(-2);
+    Opposite opposite = Opposite(int1);
+    REQUIRE(opposite.ToString() == "--2");
+    REQUIRE(opposite.ToLaTeX() == "--2");
 }

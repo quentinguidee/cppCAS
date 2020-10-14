@@ -1,13 +1,15 @@
 set(HEADERS
-    expression.hpp
-    power.hpp
     absolute_value.hpp
+    expression.hpp
+    opposite.hpp
+    power.hpp
 )
 
 set(SOURCES
-    expression.cpp
-    power.cpp
     absolute_value.cpp
+    expression.cpp
+    opposite.cpp
+    power.cpp
 )
 
 target_sources(cppCAS PUBLIC ${HEADERS} ${SOURCES})
