@@ -11,8 +11,8 @@ private:
 public:
     AbsoluteValue(Expression &argument);
     ~AbsoluteValue(){};
-    std::string ToString();
-    std::string ToLaTeX();
+    std::string ToString() override;
+    std::string ToLaTeX() override;
 };
 
 #endif /* ABSOLUTE_VALUE_HPP */

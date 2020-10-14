@@ -12,8 +12,8 @@ private:
 public:
     Power(Expression &base, Expression &power);
     ~Power(){};
-    std::string ToString();
-    std::string ToLaTeX();
+    std::string ToString() override;
+    std::string ToLaTeX() override;
 };
 
 #endif /* POWER_HPP */
