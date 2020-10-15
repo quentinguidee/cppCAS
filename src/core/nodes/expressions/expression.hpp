@@ -7,8 +7,8 @@ class Expression : public Node
 {
 private:
 public:
-    Expression(){};
-    ~Expression(){};
+    Expression() {}
+    ~Expression() {}
 };
 
 #endif /* EXPRESSION_HPP */

@@ -1,9 +1,5 @@
 #include "absolute_value.hpp"
 
-AbsoluteValue::AbsoluteValue(Expression &argument) : argument(argument)
-{
-}
-
 std::string AbsoluteValue::toString()
 {
     return "|" + argument.toString() + "|";

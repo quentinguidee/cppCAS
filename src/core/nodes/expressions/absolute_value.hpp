@@ -9,8 +9,8 @@ private:
     Expression &argument;
 
 public:
-    AbsoluteValue(Expression &argument);
-    ~AbsoluteValue(){};
+    AbsoluteValue(Expression &argument) : argument(argument) {}
+    ~AbsoluteValue() {}
     std::string toString() override;
     std::string toLaTeX() override;
 };

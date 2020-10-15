@@ -10,8 +10,8 @@ private:
     Expression &power;
 
 public:
-    Power(Expression &base, Expression &power);
-    ~Power(){};
+    Power(Expression &base, Expression &power) : base(base), power(power) {}
+    ~Power() {}
     std::string toString() override;
     std::string toLaTeX() override;
 };

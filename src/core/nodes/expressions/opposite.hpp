@@ -9,8 +9,8 @@ private:
     Expression &argument;
 
 public:
-    Opposite(Expression &argument);
-    ~Opposite(){};
+    Opposite(Expression &argument) : argument(argument) {}
+    ~Opposite() {}
     std::string toString() override;
     std::string toLaTeX() override;
 };
