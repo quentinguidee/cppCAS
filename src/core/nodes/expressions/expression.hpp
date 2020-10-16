@@ -21,6 +21,7 @@ public:
     virtual bool isOdd() const = 0;
 
     virtual Expression *opposite() const;
+    virtual Expression *absoluteValue() const;
 };
 
 #endif /* EXPRESSION_HPP */

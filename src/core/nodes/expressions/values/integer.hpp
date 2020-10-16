@@ -26,6 +26,7 @@ public:
     bool isOdd() const override { return value % 2 != 0; }
 
     Expression *opposite() const override { return new Integer(-value); }
+    Expression *absoluteValue() const override;
 };
 
 #endif /* INTEGER_HPP */

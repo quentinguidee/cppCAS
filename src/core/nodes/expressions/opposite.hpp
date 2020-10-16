@@ -26,6 +26,7 @@ public:
     bool isOdd() const override { return argument.isOdd(); }
 
     Expression *opposite() const override { return &argument; };
+    Expression *absoluteValue() const override;
 };
 
 #endif /* OPPOSITE_HPP */

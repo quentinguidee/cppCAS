@@ -31,6 +31,9 @@ TEST_CASE("Integer", "[CORE]")
     REQUIRE(int2.isOdd() == false);
 
     REQUIRE(int1.opposite()->toString() == "-3");
+
+    REQUIRE(int1.absoluteValue()->toString() == "3");
+    REQUIRE(int2.absoluteValue()->toString() == "2");
 }
 
 TEST_CASE("Power", "[CORE]")
@@ -50,6 +53,8 @@ TEST_CASE("Power", "[CORE]")
     REQUIRE(power.isNegative() == false);
 
     REQUIRE(power.opposite()->toString() == "-2^3");
+
+    REQUIRE(power.absoluteValue()->toString() == "2^3");
 }
 
 TEST_CASE("Absolute value", "[CORE]")
@@ -68,12 +73,15 @@ TEST_CASE("Absolute value", "[CORE]")
     REQUIRE(abs.isOdd() == true);
 
     REQUIRE(abs.opposite()->toString() == "-3");
+    REQUIRE(abs.absoluteValue()->toString() == "|-3|");
 }
 
 TEST_CASE("Opposite", "[CORE]")
 {
     Integer int1 = Integer(-2);
+    Integer int2 = Integer(3);
     Opposite opposite = Opposite(int1);
+    Opposite opposite2 = Opposite(int2);
 
     REQUIRE(opposite.toString() == "--2");
     REQUIRE(opposite.toLaTeX() == "--2");
@@ -86,4 +94,7 @@ TEST_CASE("Opposite", "[CORE]")
     REQUIRE(opposite.isOdd() == false);
 
     REQUIRE(opposite.opposite()->toString() == "-2");
+
+    REQUIRE(opposite.absoluteValue()->toString() == "--2");
+    REQUIRE(opposite2.absoluteValue()->toString() == "3");
 }
