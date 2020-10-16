@@ -29,6 +29,8 @@ TEST_CASE("Integer", "[CORE]")
     REQUIRE(int2.isNegative() == true);
     REQUIRE(int2.isEven() == true);
     REQUIRE(int2.isOdd() == false);
+
+    REQUIRE(int1.opposite()->toString() == "-3");
 }
 
 TEST_CASE("Power", "[CORE]")
@@ -46,6 +48,8 @@ TEST_CASE("Power", "[CORE]")
     REQUIRE(power.isZero() == false);
     REQUIRE(power.isStrictlyNegative() == false);
     REQUIRE(power.isNegative() == false);
+
+    REQUIRE(power.opposite()->toString() == "-2^3");
 }
 
 TEST_CASE("Absolute value", "[CORE]")
@@ -62,6 +66,8 @@ TEST_CASE("Absolute value", "[CORE]")
     REQUIRE(abs.isNegative() == false);
     REQUIRE(abs.isEven() == false);
     REQUIRE(abs.isOdd() == true);
+
+    REQUIRE(abs.opposite()->toString() == "-3");
 }
 
 TEST_CASE("Opposite", "[CORE]")
@@ -78,4 +84,6 @@ TEST_CASE("Opposite", "[CORE]")
     REQUIRE(opposite.isNegative() == false);
     REQUIRE(opposite.isEven() == true);
     REQUIRE(opposite.isOdd() == false);
+
+    REQUIRE(opposite.opposite()->toString() == "-2");
 }

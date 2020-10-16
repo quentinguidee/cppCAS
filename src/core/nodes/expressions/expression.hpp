@@ -19,6 +19,8 @@ public:
 
     virtual bool isEven() const = 0;
     virtual bool isOdd() const = 0;
+
+    virtual Expression *opposite() const;
 };
 
 #endif /* EXPRESSION_HPP */

@@ -24,6 +24,8 @@ public:
 
     bool isEven() const override { return value % 2 == 0; }
     bool isOdd() const override { return value % 2 != 0; }
+
+    Expression *opposite() const override { return new Integer(-value); }
 };
 
 #endif /* INTEGER_HPP */

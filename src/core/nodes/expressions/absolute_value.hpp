@@ -24,6 +24,8 @@ public:
 
     bool isEven() const override { return argument.isEven(); }
     bool isOdd() const override { return argument.isOdd(); }
+
+    Expression *opposite() const override;
 };
 
 #endif /* ABSOLUTE_VALUE_HPP */
