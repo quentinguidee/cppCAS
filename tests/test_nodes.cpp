@@ -4,8 +4,11 @@
 #include <core/nodes/node.hpp>
 
 #include <core/nodes/expressions/absolute_value.hpp>
+#include <core/nodes/expressions/cos.hpp>
 #include <core/nodes/expressions/opposite.hpp>
 #include <core/nodes/expressions/power.hpp>
+#include <core/nodes/expressions/sin.hpp>
+#include <core/nodes/expressions/tan.hpp>
 
 #include <core/nodes/expressions/values/integer.hpp>
 
@@ -97,4 +100,28 @@ TEST_CASE("Opposite", "[CORE]")
 
     REQUIRE(opposite.absoluteValue()->toString() == "--2");
     REQUIRE(opposite2.absoluteValue()->toString() == "3");
+}
+
+TEST_CASE("Sin", "[CORE]")
+{
+    Integer int1 = Integer(1);
+    Sin sin = Sin(int1);
+    REQUIRE(sin.toString() == "sin(1)");
+    REQUIRE(sin.toLaTeX() == "\\sin{(1)}");
+}
+
+TEST_CASE("Cos", "[CORE]")
+{
+    Integer int1 = Integer(1);
+    Cos cos = Cos(int1);
+    REQUIRE(cos.toString() == "cos(1)");
+    REQUIRE(cos.toLaTeX() == "\\cos{(1)}");
+}
+
+TEST_CASE("Tan", "[CORE]")
+{
+    Integer int1 = Integer(1);
+    Tan tan = Tan(int1);
+    REQUIRE(tan.toString() == "tan(1)");
+    REQUIRE(tan.toLaTeX() == "\\tan{(1)}");
 }

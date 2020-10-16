@@ -1,15 +1,21 @@
 set(HEADERS
     absolute_value.hpp
+    cos.hpp
     expression.hpp
     opposite.hpp
     power.hpp
+    sin.hpp
+    tan.hpp
 )
 
 set(SOURCES
     absolute_value.cpp
+    cos.cpp
     expression.cpp
     opposite.cpp
     power.cpp
+    sin.cpp
+    tan.cpp
 )
 
 target_sources(cppCAS PUBLIC ${HEADERS} ${SOURCES})
