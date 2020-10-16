@@ -5,6 +5,7 @@
 
 #include <core/nodes/expressions/absolute_value.hpp>
 #include <core/nodes/expressions/cos.hpp>
+#include <core/nodes/expressions/division.hpp>
 #include <core/nodes/expressions/opposite.hpp>
 #include <core/nodes/expressions/power.hpp>
 #include <core/nodes/expressions/sin.hpp>
@@ -124,4 +125,17 @@ TEST_CASE("Tan", "[CORE]")
     Tan tan = Tan(int1);
     REQUIRE(tan.toString() == "tan(1)");
     REQUIRE(tan.toLaTeX() == "\\tan{(1)}");
+}
+
+TEST_CASE("Division", "[CORE]")
+{
+    Integer int1 = Integer(2);
+    Integer int2 = Integer(-3);
+    Division division = Division(int1, int2);
+
+    REQUIRE(division.toString() == "2/-3");
+    REQUIRE(division.toLaTeX() == "\\frac{2}{-3}");
+    REQUIRE(division.isPositive() == false);
+    REQUIRE(division.isZero() == false);
+    REQUIRE(division.isNegative() == true);
 }

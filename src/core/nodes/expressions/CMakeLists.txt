@@ -1,6 +1,7 @@
 set(HEADERS
     absolute_value.hpp
     cos.hpp
+    division.hpp
     expression.hpp
     opposite.hpp
     power.hpp
@@ -11,6 +12,7 @@ set(HEADERS
 set(SOURCES
     absolute_value.cpp
     cos.cpp
+    division.cpp
     expression.cpp
     opposite.cpp
     power.cpp
