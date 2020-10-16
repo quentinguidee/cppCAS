@@ -13,15 +13,15 @@ public:
     Power(Expression &base, Expression &power) : base(base), power(power) {}
     ~Power() {}
 
-    std::string toString() override;
-    std::string toLaTeX() override;
+    std::string toString() const override;
+    std::string toLaTeX() const override;
 
-    bool isPositive() override;
-    bool isZero() override { return base.isZero(); }
-    bool isNegative() override;
+    bool isPositive() const override;
+    bool isZero() const override { return base.isZero(); }
+    bool isNegative() const override;
 
-    bool isEven() override { return false; } // TODO
-    bool isOdd() override { return false; }  // TODO
+    bool isEven() const override { return false; } // TODO
+    bool isOdd() const override { return false; }  // TODO
 };
 
 #endif /* POWER_HPP */

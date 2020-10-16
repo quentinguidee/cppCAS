@@ -10,15 +10,15 @@ public:
     Expression() {}
     ~Expression() {}
 
-    virtual bool isPositive() = 0;
-    virtual bool isZero() = 0;
-    virtual bool isNegative() = 0;
+    virtual bool isPositive() const = 0;
+    virtual bool isZero() const = 0;
+    virtual bool isNegative() const = 0;
 
-    bool isStrictlyPositive() { return isPositive() && !isZero(); }
-    bool isStrictlyNegative() { return isNegative() && !isZero(); }
+    bool isStrictlyPositive() const { return isPositive() && !isZero(); }
+    bool isStrictlyNegative() const { return isNegative() && !isZero(); }
 
-    virtual bool isEven() = 0;
-    virtual bool isOdd() = 0;
+    virtual bool isEven() const = 0;
+    virtual bool isOdd() const = 0;
 };
 
 #endif /* EXPRESSION_HPP */

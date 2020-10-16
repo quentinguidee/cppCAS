@@ -1,16 +1,16 @@
 #include "power.hpp"
 
-std::string Power::toString()
+std::string Power::toString() const
 {
     return base.toString() + "^" + power.toString();
 }
 
-std::string Power::toLaTeX()
+std::string Power::toLaTeX() const
 {
     return "{" + base.toLaTeX() + "}^{" + power.toLaTeX() + "}";
 }
 
-bool Power::isPositive()
+bool Power::isPositive() const
 {
     if (base.isPositive())
     {
@@ -23,7 +23,7 @@ bool Power::isPositive()
     return false;
 }
 
-bool Power::isNegative()
+bool Power::isNegative() const
 {
     if (isZero())
     {

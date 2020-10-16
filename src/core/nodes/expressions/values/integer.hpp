@@ -12,18 +12,18 @@ public:
     Integer(int value) : value(value) {}
     ~Integer() {}
 
-    std::string toString() override;
-    std::string toLaTeX() override;
+    std::string toString() const override;
+    std::string toLaTeX() const override;
 
-    bool isPositive() override { return value >= 0; }
-    bool isZero() override { return value == 0; }
-    bool isNegative() override { return value <= 0; }
+    bool isPositive() const override { return value >= 0; }
+    bool isZero() const override { return value == 0; }
+    bool isNegative() const override { return value <= 0; }
 
-    bool isStrictlyPositive() { return value > 0; }
-    bool isStrictlyNegative() { return value < 0; }
+    bool isStrictlyPositive() const { return value > 0; }
+    bool isStrictlyNegative() const { return value < 0; }
 
-    bool isEven() override { return value % 2 == 0; }
-    bool isOdd() override { return value % 2 != 0; }
+    bool isEven() const override { return value % 2 == 0; }
+    bool isOdd() const override { return value % 2 != 0; }
 };
 
 #endif /* INTEGER_HPP */
