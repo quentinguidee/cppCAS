@@ -1,5 +1,11 @@
 #define CATCH_CONFIG_MAIN
+
+// TODO: Remove the else statement.
+#ifdef __APPLE__
+#include <catch2/catch.hpp>
+#else
 #include "catch.hpp"
+#endif
 
 #include <core/nodes/node.hpp>
 
