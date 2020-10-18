@@ -1,5 +1,6 @@
 set(HEADERS
     value.hpp
+    unknown.hpp
     integer.hpp
 )
 

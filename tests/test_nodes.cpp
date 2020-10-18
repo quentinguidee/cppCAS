@@ -19,6 +19,7 @@
 #include <core/nodes/expressions/sin.hpp>
 #include <core/nodes/expressions/tan.hpp>
 
+#include <core/nodes/expressions/values/unknown.hpp>
 #include <core/nodes/expressions/values/integer.hpp>
 
 TEST_CASE("Integer", "[CORE]")
@@ -166,4 +167,13 @@ TEST_CASE("Addition", "[CORE]")
 
     REQUIRE(addition.toString() == "1+2+1");
     REQUIRE(addition.toLaTeX() == "1+2+1");
+}
+
+TEST_CASE("Unknown", "[CORE]")
+{
+    Unknown x = Unknown();
+    Unknown y = Unknown('y');
+
+    REQUIRE(x.toString() == "x");
+    REQUIRE(y.toString() == "y");
 }
