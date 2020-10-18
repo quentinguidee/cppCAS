@@ -3,6 +3,8 @@ set(HEADERS
     cos.hpp
     division.hpp
     expression.hpp
+    multi_node.hpp
+    multiplication.hpp
     opposite.hpp
     power.hpp
     sin.hpp
@@ -14,6 +16,7 @@ set(SOURCES
     cos.cpp
     division.cpp
     expression.cpp
+    multi_node.cpp
     opposite.cpp
     power.cpp
     sin.cpp

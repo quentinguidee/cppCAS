@@ -12,6 +12,7 @@
 #include <core/nodes/expressions/absolute_value.hpp>
 #include <core/nodes/expressions/cos.hpp>
 #include <core/nodes/expressions/division.hpp>
+#include <core/nodes/expressions/multiplication.hpp>
 #include <core/nodes/expressions/opposite.hpp>
 #include <core/nodes/expressions/power.hpp>
 #include <core/nodes/expressions/sin.hpp>
@@ -144,4 +145,14 @@ TEST_CASE("Division", "[CORE]")
     REQUIRE(division.isPositive() == false);
     REQUIRE(division.isZero() == false);
     REQUIRE(division.isNegative() == true);
+}
+
+TEST_CASE("Multiplication", "[CORE]")
+{
+    Integer int1 = Integer(1);
+    Integer int2 = Integer(2);
+    Multiplication multiplication = Multiplication({int1, int2, int1});
+
+    REQUIRE(multiplication.toString() == "1*2*1");
+    REQUIRE(multiplication.toLaTeX() == "1\\cdot 2\\cdot 1");
 }
