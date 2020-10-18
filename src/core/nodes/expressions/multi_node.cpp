@@ -1,5 +1,9 @@
 #include "multi_node.hpp"
 
+#include <vector>
+#include <iostream>
+#include <functional>
+
 std::string MultiNode::toString() const
 {
     std::string string = "";
