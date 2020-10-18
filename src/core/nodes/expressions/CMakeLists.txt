@@ -1,5 +1,6 @@
 set(HEADERS
     absolute_value.hpp
+    addition.hpp
     cos.hpp
     division.hpp
     expression.hpp

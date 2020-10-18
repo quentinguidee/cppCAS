@@ -10,6 +10,7 @@
 #include <core/nodes/node.hpp>
 
 #include <core/nodes/expressions/absolute_value.hpp>
+#include <core/nodes/expressions/addition.hpp>
 #include <core/nodes/expressions/cos.hpp>
 #include <core/nodes/expressions/division.hpp>
 #include <core/nodes/expressions/multiplication.hpp>
@@ -155,4 +156,14 @@ TEST_CASE("Multiplication", "[CORE]")
 
     REQUIRE(multiplication.toString() == "1*2*1");
     REQUIRE(multiplication.toLaTeX() == "1\\cdot 2\\cdot 1");
+}
+
+TEST_CASE("Addition", "[CORE]")
+{
+    Integer int1 = Integer(1);
+    Integer int2 = Integer(2);
+    Addition addition = Addition({int1, int2, int1});
+
+    REQUIRE(addition.toString() == "1+2+1");
+    REQUIRE(addition.toLaTeX() == "1+2+1");
 }
