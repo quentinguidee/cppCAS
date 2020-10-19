@@ -27,6 +27,9 @@ public:
     std::string toLaTeX() const override { return std::string(1, symbol); }
 
     Expression *differentiated(Unknown &unknown) const override;
+
+    Unknown operator=(char symbol) { return Unknown(symbol); }
+    Unknown operator=(std::string symbol) { return Unknown(symbol[0]); }
 };
 
 #endif /* UNKNOWN_HPP */

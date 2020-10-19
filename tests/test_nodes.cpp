@@ -25,8 +25,8 @@
 
 TEST_CASE("Integer", "[CORE]")
 {
-    Integer int1 = Integer(3);
-    Integer int2 = Integer(-2);
+    Integer int1 = 3;
+    Integer int2 = -2;
 
     REQUIRE(int1.isPositive() == true);
     REQUIRE(int1.isStrictlyPositive() == true);
@@ -52,9 +52,9 @@ TEST_CASE("Integer", "[CORE]")
 
 TEST_CASE("Power", "[CORE]")
 {
-    Integer int1 = Integer(2);
-    Integer int2 = Integer(3);
-    Power power = Power(int1, int2);
+    Integer int1 = 2;
+    Integer int2 = 3;
+    Power power(int1, int2);
 
     REQUIRE(power.toString() == "2^3");
     REQUIRE(power.toLaTeX() == "{2}^{3}");
@@ -73,8 +73,8 @@ TEST_CASE("Power", "[CORE]")
 
 TEST_CASE("Absolute value", "[CORE]")
 {
-    Integer int1 = Integer(-3);
-    AbsoluteValue abs = AbsoluteValue(int1);
+    Integer int1 = -3;
+    AbsoluteValue abs(int1);
 
     REQUIRE(abs.toString() == "|-3|");
     REQUIRE(abs.toLaTeX() == "\\left\\mid-3\\right\\mid");
@@ -92,11 +92,11 @@ TEST_CASE("Absolute value", "[CORE]")
 
 TEST_CASE("Opposite", "[CORE]")
 {
-    Integer int1 = Integer(-2);
-    Integer int2 = Integer(3);
-    Opposite opposite = Opposite(int1);
-    Opposite opposite2 = Opposite(int2);
-    Unknown x = Unknown();
+    Integer int1 = -2;
+    Integer int2 = 3;
+    Opposite opposite(int1);
+    Opposite opposite2(int2);
+    Unknown x{};
 
     REQUIRE(opposite.toString() == "--2");
     REQUIRE(opposite.toLaTeX() == "--2");
@@ -118,9 +118,9 @@ TEST_CASE("Opposite", "[CORE]")
 
 TEST_CASE("Sin", "[CORE]")
 {
-    Integer int1 = Integer(1);
-    Sin sin = Sin(int1);
-    Unknown x = Unknown();
+    Integer int1 = 1;
+    Sin sin(int1);
+    Unknown x{};
 
     REQUIRE(sin.toString() == "sin(1)");
     REQUIRE(sin.toLaTeX() == "\\sin{(1)}");
@@ -130,9 +130,9 @@ TEST_CASE("Sin", "[CORE]")
 
 TEST_CASE("Cos", "[CORE]")
 {
-    Integer int1 = Integer(1);
-    Cos cos = Cos(int1);
-    Unknown x = Unknown();
+    Integer int1 = 1;
+    Cos cos(int1);
+    Unknown x{};
 
     REQUIRE(cos.toString() == "cos(1)");
     REQUIRE(cos.toLaTeX() == "\\cos{(1)}");
@@ -142,9 +142,9 @@ TEST_CASE("Cos", "[CORE]")
 
 TEST_CASE("Tan", "[CORE]")
 {
-    Integer int1 = Integer(1);
-    Tan tan = Tan(int1);
-    Unknown x = Unknown();
+    Integer int1 = 1;
+    Tan tan(int1);
+    Unknown x{};
 
     REQUIRE(tan.toString() == "tan(1)");
     REQUIRE(tan.toLaTeX() == "\\tan{(1)}");
@@ -154,9 +154,9 @@ TEST_CASE("Tan", "[CORE]")
 
 TEST_CASE("Division", "[CORE]")
 {
-    Integer int1 = Integer(2);
-    Integer int2 = Integer(-3);
-    Division division = Division(int1, int2);
+    Integer int1 = 2;
+    Integer int2 = -3;
+    Division division(int1, int2);
 
     REQUIRE(division.toString() == "2/-3");
     REQUIRE(division.toLaTeX() == "\\frac{2}{-3}");
@@ -167,9 +167,9 @@ TEST_CASE("Division", "[CORE]")
 
 TEST_CASE("Multiplication", "[CORE]")
 {
-    Integer int1 = Integer(1);
-    Integer int2 = Integer(2);
-    Multiplication multiplication = Multiplication({int1, int2, int1});
+    Integer int1 = 1;
+    Integer int2 = 2;
+    Multiplication multiplication{int1, int2, int1};
 
     REQUIRE(multiplication.toString() == "1*2*1");
     REQUIRE(multiplication.toLaTeX() == "1\\cdot 2\\cdot 1");
@@ -177,9 +177,9 @@ TEST_CASE("Multiplication", "[CORE]")
 
 TEST_CASE("Addition", "[CORE]")
 {
-    Integer int1 = Integer(1);
-    Integer int2 = Integer(2);
-    Addition addition = Addition({int1, int2, int1});
+    Integer int1 = 1;
+    Integer int2 = 2;
+    Addition addition{int1, int2, int1};
 
     REQUIRE(addition.toString() == "1+2+1");
     REQUIRE(addition.toLaTeX() == "1+2+1");
@@ -187,8 +187,8 @@ TEST_CASE("Addition", "[CORE]")
 
 TEST_CASE("Unknown", "[CORE]")
 {
-    Unknown x = Unknown();
-    Unknown y = Unknown('y');
+    Unknown x{};
+    Unknown y = 'y';
 
     REQUIRE(x.toString() == "x");
     REQUIRE(y.toString() == "y");
@@ -199,8 +199,8 @@ TEST_CASE("Unknown", "[CORE]")
 
 TEST_CASE("Differential", "[CORE]")
 {
-    Unknown x = Unknown();
-    Differential differential = Differential(x, x);
+    Unknown x{};
+    Differential differential(x, x);
 
     REQUIRE(differential.toString() == "d/dx(x)");
     REQUIRE(differential.toLaTeX() == "\\frac{d}{dx}\\left(x\\right)");

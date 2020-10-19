@@ -28,6 +28,8 @@ public:
     Expression *opposite() const override { return new Integer(-value); }
     Expression *absoluteValue() const override;
     Expression *differentiated(Unknown &unknown) const override { return new Integer(0); };
+
+    Integer operator=(int i) const { return Integer(i); }
 };
 
 #endif /* INTEGER_HPP */
