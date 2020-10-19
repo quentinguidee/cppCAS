@@ -24,6 +24,7 @@
 #include <core/nodes/expressions/values/integer.hpp>
 
 #include <parser/lexer.hpp>
+#include <parser/parser.hpp>
 
 TEST_CASE("Integer", "[CORE]")
 {
@@ -213,8 +214,21 @@ TEST_CASE("Lexer", "[PARSER]")
     std::vector<Token> tokens;
 
     tokens = Lexer::execute("2.3+1");
-    REQUIRE(Lexer::tokensToString(tokens) == "[(10, '2.3'), (0, '+'), (10, '1'), ]");
+    REQUIRE(Lexer::tokensToString(tokens) == "[(11, '2.3'), (0, '+'), (11, '1'), ]");
 
     tokens = Lexer::execute("abs(x)");
-    REQUIRE(Lexer::tokensToString(tokens) == "[(11, 'abs'), (4, '('), (11, 'x'), (5, ')'), ]");
+    REQUIRE(Lexer::tokensToString(tokens) == "[(12, 'abs'), (5, '('), (12, 'x'), (6, ')'), ]");
+}
+
+TEST_CASE("Parser", "[PARSER]")
+{
+    std::vector<Token> tokens;
+
+    tokens = Lexer::execute("3+4*1+5");
+    tokens = Parser::reorderTokens(tokens);
+    REQUIRE(Lexer::tokensToString(tokens) == "[(11, '3'), (11, '4'), (11, '1'), (2, '*'), (0, '+'), (11, '5'), (0, '+'), ]");
+
+    tokens = Lexer::execute("sin(7/3*2)");
+    tokens = Parser::reorderTokens(tokens);
+    REQUIRE(Lexer::tokensToString(tokens) == "[(11, '7'), (11, '3'), (3, '/'), (11, '2'), (2, '*'), (12, 'sin'), ]");
 }

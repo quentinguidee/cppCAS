@@ -83,6 +83,8 @@ TokenType Lexer::getTypeOf(char character)
         return TokenType::star;
     case '/':
         return TokenType::slash;
+    case '^':
+        return TokenType::hat;
     case '.':
         return TokenType::dot;
     case '(':

@@ -7,6 +7,7 @@ enum class TokenType
     minus,
     star,
     slash,
+    hat,
 
     leftparenthesis,
     rightparenthesis,
