@@ -23,6 +23,8 @@
 #include <core/nodes/expressions/values/unknown.hpp>
 #include <core/nodes/expressions/values/integer.hpp>
 
+#include <parser/lexer.hpp>
+
 TEST_CASE("Integer", "[CORE]")
 {
     Integer int1 = 3;
@@ -204,4 +206,15 @@ TEST_CASE("Differential", "[CORE]")
 
     REQUIRE(differential.toString() == "d/dx(x)");
     REQUIRE(differential.toLaTeX() == "\\frac{d}{dx}\\left(x\\right)");
+}
+
+TEST_CASE("Lexer", "[PARSER]")
+{
+    std::vector<Token> tokens;
+
+    tokens = Lexer::execute("2.3+1");
+    REQUIRE(Lexer::tokensToString(tokens) == "[(10, '2.3'), (0, '+'), (10, '1'), ]");
+
+    tokens = Lexer::execute("abs(x)");
+    REQUIRE(Lexer::tokensToString(tokens) == "[(11, 'abs'), (4, '('), (11, 'x'), (5, ')'), ]");
 }
