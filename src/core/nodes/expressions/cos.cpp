@@ -17,7 +17,6 @@ std::string Cos::toLaTeX() const
 Expression *Cos::differentiated(Unknown &unknown) const
 {
     Expression *diff = argument.differentiated(unknown);
-    Sin *sin = new Sin(argument);
-    Opposite *opposite = new Opposite(*sin);
+    Opposite *opposite = new Opposite(*new Sin(argument));
     return new Multiplication({*diff, *opposite});
 }

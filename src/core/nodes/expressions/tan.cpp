@@ -16,9 +16,9 @@ std::string Tan::toLaTeX() const
 
 Expression *Tan::differentiated(Unknown &unknown) const
 {
-    Sin *numerator = new Sin(argument);
-    Cos *denominator = new Cos(argument);
-    Division *division = new Division(*numerator, *denominator);
-    Expression *div = division->differentiated(unknown);
-    return div;
+    Division *division = new Division(
+        *new Sin(argument),
+        *new Cos(argument));
+
+    return division->differentiated(unknown);
 }

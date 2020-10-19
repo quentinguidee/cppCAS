@@ -14,11 +14,7 @@ Expression *Expression::opposite() const
 
 Expression *Expression::absoluteValue() const
 {
-    if (isPositive())
-    {
-        return &self();
-    }
-    return new AbsoluteValue(self());
+    return isPositive() ? &self() : new AbsoluteValue(self());
 }
 
 Expression *Expression::differentiated(Unknown &unknown) const

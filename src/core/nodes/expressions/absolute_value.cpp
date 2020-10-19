@@ -13,9 +13,5 @@ std::string AbsoluteValue::toLaTeX() const
 
 Expression *AbsoluteValue::opposite() const
 {
-    if (argument.isStrictlyPositive())
-    {
-        return new Opposite(argument);
-    }
-    return &argument;
+    return argument.isStrictlyPositive() ? new Opposite(argument) : &argument;
 }

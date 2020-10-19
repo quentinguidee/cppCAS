@@ -12,8 +12,8 @@ public:
     Integer(int value) : value(value) {}
     ~Integer() {}
 
-    std::string toString() const override;
-    std::string toLaTeX() const override;
+    std::string toString() const override { return std::to_string(value); }
+    std::string toLaTeX() const override { return toString(); }
 
     bool isPositive() const override { return value >= 0; }
     bool isZero() const override { return value == 0; }
