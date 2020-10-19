@@ -14,7 +14,7 @@ Expression *Integer::absoluteValue() const
 {
     if (isPositive())
     {
-        return &const_cast<Integer &>(*this);
+        return &self();
     }
     return opposite();
 }

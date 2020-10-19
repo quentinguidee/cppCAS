@@ -9,19 +9,19 @@
 
 Expression *Expression::opposite() const
 {
-    return new Opposite(const_cast<Expression &>(*this));
+    return new Opposite(self());
 }
 
 Expression *Expression::absoluteValue() const
 {
     if (isPositive())
     {
-        return &const_cast<Expression &>(*this);
+        return &self();
     }
-    return new AbsoluteValue(const_cast<Expression &>(*this));
+    return new AbsoluteValue(self());
 }
 
 Expression *Expression::differentiated(Unknown &unknown) const
 {
-    return new Differential(const_cast<Expression &>(*this), unknown);
+    return new Differential(self(), unknown);
 }
