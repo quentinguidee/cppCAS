@@ -27,6 +27,7 @@ public:
 
     Expression *opposite() const override { return new Integer(-value); }
     Expression *absoluteValue() const override;
+    Expression *differentiated(Unknown &unknown) const override { return new Integer(0); };
 };
 
 #endif /* INTEGER_HPP */

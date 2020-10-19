@@ -2,6 +2,7 @@ set(HEADERS
     absolute_value.hpp
     addition.hpp
     cos.hpp
+    differential.hpp
     division.hpp
     expression.hpp
     multi_node.hpp
@@ -15,6 +16,7 @@ set(HEADERS
 set(SOURCES
     absolute_value.cpp
     cos.cpp
+    differential.cpp
     division.cpp
     expression.cpp
     multi_node.cpp

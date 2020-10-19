@@ -2,7 +2,6 @@
 
 #include <vector>
 #include <iostream>
-#include <functional>
 
 std::string MultiNode::toString() const
 {

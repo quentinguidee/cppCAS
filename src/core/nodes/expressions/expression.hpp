@@ -3,6 +3,8 @@
 
 #include "../node.hpp"
 
+class Unknown;
+
 class Expression : public Node
 {
 private:
@@ -22,6 +24,7 @@ public:
 
     virtual Expression *opposite() const;
     virtual Expression *absoluteValue() const;
+    virtual Expression *differentiated(Unknown &unknown) const;
 };
 
 #endif /* EXPRESSION_HPP */

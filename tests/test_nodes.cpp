@@ -12,6 +12,7 @@
 #include <core/nodes/expressions/absolute_value.hpp>
 #include <core/nodes/expressions/addition.hpp>
 #include <core/nodes/expressions/cos.hpp>
+#include <core/nodes/expressions/differential.hpp>
 #include <core/nodes/expressions/division.hpp>
 #include <core/nodes/expressions/multiplication.hpp>
 #include <core/nodes/expressions/opposite.hpp>
@@ -95,6 +96,7 @@ TEST_CASE("Opposite", "[CORE]")
     Integer int2 = Integer(3);
     Opposite opposite = Opposite(int1);
     Opposite opposite2 = Opposite(int2);
+    Unknown x = Unknown();
 
     REQUIRE(opposite.toString() == "--2");
     REQUIRE(opposite.toLaTeX() == "--2");
@@ -110,30 +112,44 @@ TEST_CASE("Opposite", "[CORE]")
 
     REQUIRE(opposite.absoluteValue()->toString() == "--2");
     REQUIRE(opposite2.absoluteValue()->toString() == "3");
+
+    REQUIRE(opposite.differentiated(x)->toString() == "-0");
 }
 
 TEST_CASE("Sin", "[CORE]")
 {
     Integer int1 = Integer(1);
     Sin sin = Sin(int1);
+    Unknown x = Unknown();
+
     REQUIRE(sin.toString() == "sin(1)");
     REQUIRE(sin.toLaTeX() == "\\sin{(1)}");
+
+    REQUIRE(sin.differentiated(x)->toString() == "0*cos(1)");
 }
 
 TEST_CASE("Cos", "[CORE]")
 {
     Integer int1 = Integer(1);
     Cos cos = Cos(int1);
+    Unknown x = Unknown();
+
     REQUIRE(cos.toString() == "cos(1)");
     REQUIRE(cos.toLaTeX() == "\\cos{(1)}");
+
+    REQUIRE(cos.differentiated(x)->toString() == "0*-sin(1)");
 }
 
 TEST_CASE("Tan", "[CORE]")
 {
     Integer int1 = Integer(1);
     Tan tan = Tan(int1);
+    Unknown x = Unknown();
+
     REQUIRE(tan.toString() == "tan(1)");
     REQUIRE(tan.toLaTeX() == "\\tan{(1)}");
+
+    REQUIRE(tan.differentiated(x)->toString() == "d/dx(sin(1)/cos(1))");
 }
 
 TEST_CASE("Division", "[CORE]")
@@ -176,4 +192,16 @@ TEST_CASE("Unknown", "[CORE]")
 
     REQUIRE(x.toString() == "x");
     REQUIRE(y.toString() == "y");
+
+    REQUIRE(x.differentiated(x)->toString() == "1");
+    REQUIRE(x.differentiated(y)->toString() == "0");
+}
+
+TEST_CASE("Differential", "[CORE]")
+{
+    Unknown x = Unknown();
+    Differential differential = Differential(x, x);
+
+    REQUIRE(differential.toString() == "d/dx(x)");
+    REQUIRE(differential.toLaTeX() == "\\frac{d}{dx}\\left(x\\right)");
 }

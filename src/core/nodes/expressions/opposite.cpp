@@ -18,3 +18,9 @@ Expression *Opposite::absoluteValue() const
     }
     return this->Expression::absoluteValue();
 }
+
+Expression *Opposite::differentiated(Unknown &unknown) const
+{
+    Expression *expression = argument.differentiated(unknown);
+    return new Opposite(*expression);
+}

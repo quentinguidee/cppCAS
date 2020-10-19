@@ -22,6 +22,8 @@ public:
 
     std::string toString() const override;
     std::string toLaTeX() const override;
+
+    Expression *differentiated(Unknown &unknown) const override;
 };
 
 #endif /* SIN_HPP */

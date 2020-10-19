@@ -6,6 +6,7 @@ set(HEADERS
 
 set(SOURCES
     value.cpp
+    unknown.cpp
     integer.cpp
 )
 

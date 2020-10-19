@@ -1,17 +1,19 @@
-#ifndef COS_HPP
-#define COS_HPP
+#ifndef DIFFERENTIAL_HPP
+#define DIFFERENTIAL_HPP
 
 #include "expression.hpp"
+#include "values/unknown.hpp"
 #include "exceptions/todo.hpp"
 
-class Cos : public Expression
+class Differential : public Expression
 {
 private:
+    Unknown &unknown;
     Expression &argument;
 
 public:
-    Cos(Expression &argument) : argument(argument) {}
-    ~Cos() {}
+    Differential(Expression &argument, Unknown &unknown) : argument(argument), unknown(unknown) {}
+    ~Differential() {}
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }
@@ -22,8 +24,6 @@ public:
 
     std::string toString() const override;
     std::string toLaTeX() const override;
-
-    Expression *differentiated(Unknown &unknown) const override;
 };
 
-#endif /* COS_HPP */
+#endif /* DIFFERENTIAL_HPP */

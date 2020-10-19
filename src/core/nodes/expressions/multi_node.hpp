@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <initializer_list>
+#include <functional>
 
 #include "expression.hpp"
 
