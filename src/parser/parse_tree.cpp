@@ -2,13 +2,18 @@
 
 #include <iostream>
 #include <functional>
+#include <string>
 
 #include "parser.hpp"
 #include "lexer.hpp"
 
+#include "../core/nodes/expressions/addition.hpp"
+#include "../core/nodes/expressions/multiplication.hpp"
+#include "../core/nodes/expressions/division.hpp"
+#include "../core/nodes/expressions/values/integer.hpp"
+
 ParseTree::ParseTree(std::vector<Token> tokens)
 {
-    std::cout << Lexer::tokensToString(tokens) << std::endl;
     std::vector<std::reference_wrapper<Node>> stack{};
     for (Token &token : tokens)
     {
@@ -51,4 +56,30 @@ std::string ParseTree::Node::toString(int level) const
         output += node.toString(level + 1);
     }
     return output;
+}
+
+Expression &ParseTree::Node::getExpression()
+{
+    if (expression != nullptr)
+    {
+        return *expression;
+    }
+    switch (token.getType())
+    {
+    case TokenType::plus:
+        expression = new Addition({children[1].getExpression(), children[0].getExpression()});
+        break;
+    case TokenType::star:
+        expression = new Multiplication({children[1].getExpression(), children[0].getExpression()});
+        break;
+    case TokenType::slash:
+        expression = new Division(children[1].getExpression(), children[0].getExpression());
+        break;
+    case TokenType::digit:
+        expression = new Integer(std::atoi(token.getValue().c_str()));
+        break;
+    default:
+        break;
+    }
+    return *expression;
 }

@@ -238,6 +238,11 @@ TEST_CASE("Parse Tree", "[PARSER]")
 {
     std::vector<Token> tokens;
 
-    tokens = Lexer::execute("sin(7/3*2)+2+3");
+    tokens = Lexer::execute("3+2/4+5");
     tokens = Parser::reorderTokens(tokens);
+    REQUIRE(ParseTree(tokens).getExpression().toString() == "3+2/4+5");
+
+    tokens = Lexer::execute("(3/2)*(4/2)");
+    tokens = Parser::reorderTokens(tokens);
+    REQUIRE(ParseTree(tokens).getExpression().toString() == "3/2*4/2");
 }
