@@ -46,6 +46,12 @@ std::vector<Token> Parser::reorderTokens(std::vector<Token> &tokens)
             {
                 stack.pop_back();
             }
+            // eg. sin(x)+3
+            if (stack.size() != 0 && stack.back().getType() == TokenType::alpha)
+            {
+                output.push_back(stack.back());
+                stack.pop_back();
+            }
         }
         else
         {

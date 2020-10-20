@@ -25,6 +25,7 @@
 
 #include <parser/lexer.hpp>
 #include <parser/parser.hpp>
+#include <parser/parse_tree.hpp>
 
 TEST_CASE("Integer", "[CORE]")
 {
@@ -228,7 +229,15 @@ TEST_CASE("Parser", "[PARSER]")
     tokens = Parser::reorderTokens(tokens);
     REQUIRE(Lexer::tokensToString(tokens) == "[(11, '3'), (11, '4'), (11, '1'), (2, '*'), (0, '+'), (11, '5'), (0, '+'), ]");
 
-    tokens = Lexer::execute("sin(7/3*2)");
+    tokens = Lexer::execute("sin(7/3*2)+2+3");
     tokens = Parser::reorderTokens(tokens);
-    REQUIRE(Lexer::tokensToString(tokens) == "[(11, '7'), (11, '3'), (3, '/'), (11, '2'), (2, '*'), (12, 'sin'), ]");
+    REQUIRE(Lexer::tokensToString(tokens) == "[(11, '7'), (11, '3'), (3, '/'), (11, '2'), (2, '*'), (12, 'sin'), (11, '2'), (0, '+'), (11, '3'), (0, '+'), ]");
+}
+
+TEST_CASE("Parse Tree", "[PARSER]")
+{
+    std::vector<Token> tokens;
+
+    tokens = Lexer::execute("sin(7/3*2)+2+3");
+    tokens = Parser::reorderTokens(tokens);
 }
