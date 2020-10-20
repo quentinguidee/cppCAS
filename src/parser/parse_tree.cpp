@@ -1,16 +1,16 @@
 #include "parse_tree.hpp"
 
-#include <iostream>
 #include <functional>
+#include <iostream>
 #include <string>
 
-#include "parser.hpp"
-#include "lexer.hpp"
-
 #include "../core/nodes/expressions/addition.hpp"
-#include "../core/nodes/expressions/multiplication.hpp"
 #include "../core/nodes/expressions/division.hpp"
+#include "../core/nodes/expressions/multiplication.hpp"
 #include "../core/nodes/expressions/values/integer.hpp"
+#include "lexer.hpp"
+#include "parser.hpp"
+#include "tokens_library.hpp"
 
 ParseTree::ParseTree(std::vector<Token> tokens)
 {
@@ -31,7 +31,7 @@ ParseTree::ParseTree(std::vector<Token> tokens)
             stack.pop_back();
             stack.push_back(std::ref(*node));
         }
-        else // 1 argument
+        else  // 1 argument
         {
             Node *node = new Node(token);
             node->push(stack.back().get());
@@ -64,22 +64,5 @@ Expression &ParseTree::Node::getExpression()
     {
         return *expression;
     }
-    switch (token.getType())
-    {
-    case TokenType::plus:
-        expression = new Addition({children[1].getExpression(), children[0].getExpression()});
-        break;
-    case TokenType::star:
-        expression = new Multiplication({children[1].getExpression(), children[0].getExpression()});
-        break;
-    case TokenType::slash:
-        expression = new Division(children[1].getExpression(), children[0].getExpression());
-        break;
-    case TokenType::digit:
-        expression = new Integer(std::atoi(token.getValue().c_str()));
-        break;
-    default:
-        break;
-    }
-    return *expression;
+    return *tokensLibrary[token.getType()](*this);
 }

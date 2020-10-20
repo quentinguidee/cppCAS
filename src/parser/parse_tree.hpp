@@ -22,7 +22,12 @@ public:
 
         void push(Node child) { children.push_back(child); }
         std::string toString(int level = 0) const;
+
         Expression &getExpression();
+        Expression &getExpression(int childId) { return children[childId].getExpression(); }
+
+        Token &getToken() { return token; }
+        Node &getChild(int i) { return children[i]; }
     };
 
 private:

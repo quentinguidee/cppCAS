@@ -1,6 +1,8 @@
 #ifndef TOKEN_TYPE_HPP
 #define TOKEN_TYPE_HPP
 
+#include <functional>
+
 enum class TokenType
 {
     plus,

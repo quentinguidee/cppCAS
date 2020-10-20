@@ -75,31 +75,18 @@ TokenType Lexer::getTypeOf(char character)
 {
     switch (character)
     {
-    case '+':
-        return TokenType::plus;
-    case '-':
-        return TokenType::minus;
-    case '*':
-        return TokenType::star;
-    case '/':
-        return TokenType::slash;
-    case '^':
-        return TokenType::hat;
-    case '.':
-        return TokenType::dot;
-    case '(':
-        return TokenType::leftparenthesis;
-    case ')':
-        return TokenType::rightparenthesis;
-    case '{':
-        return TokenType::leftbrace;
-    case '}':
-        return TokenType::rightbrace;
-    case '[':
-        return TokenType::leftbracket;
-    case ']':
-        return TokenType::rightbracket;
-    default:
-        return TokenType::error;
+        case '+': return TokenType::plus;
+        case '-': return TokenType::minus;
+        case '*': return TokenType::star;
+        case '/': return TokenType::slash;
+        case '^': return TokenType::hat;
+        case '.': return TokenType::dot;
+        case '(': return TokenType::leftparenthesis;
+        case ')': return TokenType::rightparenthesis;
+        case '{': return TokenType::leftbrace;
+        case '}': return TokenType::rightbrace;
+        case '[': return TokenType::leftbracket;
+        case ']': return TokenType::rightbracket;
+        default: return TokenType::error;
     }
 }

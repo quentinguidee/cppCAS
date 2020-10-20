@@ -2,6 +2,7 @@ set(HEADERS
     lexer.hpp
     parse_tree.hpp
     parser.hpp
+    tokens_library.hpp
     token_type.hpp
     token.hpp
 )
