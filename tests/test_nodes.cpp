@@ -7,8 +7,6 @@
 #include "catch.hpp"
 #endif
 
-#include <core/nodes/node.hpp>
-
 #include <core/nodes/expressions/absolute_value.hpp>
 #include <core/nodes/expressions/addition.hpp>
 #include <core/nodes/expressions/cos.hpp>
@@ -19,13 +17,12 @@
 #include <core/nodes/expressions/power.hpp>
 #include <core/nodes/expressions/sin.hpp>
 #include <core/nodes/expressions/tan.hpp>
-
-#include <core/nodes/expressions/values/unknown.hpp>
 #include <core/nodes/expressions/values/integer.hpp>
-
+#include <core/nodes/expressions/values/unknown.hpp>
+#include <core/nodes/node.hpp>
 #include <parser/lexer.hpp>
-#include <parser/parser.hpp>
 #include <parser/parse_tree.hpp>
+#include <parser/parser.hpp>
 
 TEST_CASE("Integer", "[CORE]")
 {
@@ -192,7 +189,7 @@ TEST_CASE("Addition", "[CORE]")
 TEST_CASE("Unknown", "[CORE]")
 {
     Unknown x{};
-    Unknown y = 'y';
+    Unknown y("y");
 
     REQUIRE(x.toString() == "x");
     REQUIRE(y.toString() == "y");
@@ -218,7 +215,7 @@ TEST_CASE("Lexer", "[PARSER]")
     REQUIRE(Lexer::tokensToString(tokens) == "[(11, '2.3'), (0, '+'), (11, '1'), ]");
 
     tokens = Lexer::execute("abs(x)");
-    REQUIRE(Lexer::tokensToString(tokens) == "[(12, 'abs'), (5, '('), (12, 'x'), (6, ')'), ]");
+    REQUIRE(Lexer::tokensToString(tokens) == "[(12, 'abs'), (5, '('), (14, 'x'), (6, ')'), ]");
 }
 
 TEST_CASE("Parser", "[PARSER]")
@@ -245,4 +242,12 @@ TEST_CASE("Parse Tree", "[PARSER]")
     tokens = Lexer::execute("(3/2)*(4/2)");
     tokens = Parser::reorderTokens(tokens);
     REQUIRE(ParseTree(tokens).getExpression().toString() == "3/2*4/2");
+
+    tokens = Lexer::execute("abs(2+3)");
+    tokens = Parser::reorderTokens(tokens);
+    REQUIRE(ParseTree(tokens).getExpression().toString() == "|2+3|");
+
+    tokens = Lexer::execute("sin(x)");
+    tokens = Parser::reorderTokens(tokens);
+    REQUIRE(ParseTree(tokens).getExpression().toString() == "sin(x)");
 }

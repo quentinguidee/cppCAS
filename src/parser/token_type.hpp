@@ -24,6 +24,8 @@ enum class TokenType
     alpha,
     dot,
 
+    symbol,
+
     error,
 };
 

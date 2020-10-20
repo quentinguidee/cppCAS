@@ -1,5 +1,7 @@
 #include "lexer.hpp"
 
+#include "tokens_library.hpp"
+
 std::vector<Token> Lexer::execute(std::string input)
 {
     std::vector<Token> tokens{};
@@ -10,18 +12,18 @@ std::vector<Token> Lexer::execute(std::string input)
         std::string value;
         if (isdigit(character))
         {
-            type = TokenType::digit;
             value = scanDigit(input, i);
+            type = TokenType::digit;
         }
         else if (isalpha(character))
         {
-            type = TokenType::alpha;
             value = scanAlpha(input, i);
+            type = functions.count(value) == 1 ? TokenType::alpha : TokenType::symbol;
         }
         else
         {
-            type = getTypeOf(character);
             value = character;
+            type = getTypeOf(character);
         }
         tokens.push_back(Token(type, value));
     }

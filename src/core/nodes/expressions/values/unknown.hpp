@@ -2,19 +2,19 @@
 #define UNKNOWN_HPP
 
 #include "../expression.hpp"
-#include "value.hpp"
 #include "exceptions/todo.hpp"
+#include "value.hpp"
 
 class Unknown : public Value
 {
 private:
-    const char symbol;
+    const std::string symbol;
 
 public:
-    Unknown(const char symbol = 'x') : symbol(symbol) {}
+    Unknown(const std::string symbol = "x") : symbol(symbol) {}
     ~Unknown() {}
 
-    char getSymbol() const { return symbol; }
+    std::string getSymbol() const { return symbol; }
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }
@@ -23,13 +23,12 @@ public:
     bool isEven() const override { throw TODO(); }
     bool isOdd() const override { throw TODO(); }
 
-    std::string toString() const override { return std::string(1, symbol); }
-    std::string toLaTeX() const override { return std::string(1, symbol); }
+    std::string toString() const override { return symbol; }
+    std::string toLaTeX() const override { return symbol; }
 
     Expression *differentiated(Unknown &unknown) const override;
 
-    Unknown operator=(char symbol) { return Unknown(symbol); }
-    Unknown operator=(std::string symbol) { return Unknown(symbol[0]); }
+    Unknown operator=(std::string symbol) { return Unknown(symbol); }
 };
 
 #endif /* UNKNOWN_HPP */

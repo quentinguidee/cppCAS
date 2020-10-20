@@ -8,7 +8,7 @@ std::vector<Token> Parser::reorderTokens(std::vector<Token> &tokens)
     for (int i = 0; i < tokens.size(); i++)
     {
         Token token = tokens[i];
-        if (token.getType() == TokenType::digit)
+        if (token.getType() == TokenType::digit || token.getType() == TokenType::symbol)
         {
             output.push_back(token);
         }

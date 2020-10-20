@@ -11,6 +11,7 @@ set(SOURCES
     lexer.cpp
     parse_tree.cpp
     parser.cpp
+    tokens_library.cpp
     token.cpp
 )
 
