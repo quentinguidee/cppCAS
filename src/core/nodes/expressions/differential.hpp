@@ -1,9 +1,9 @@
 #ifndef DIFFERENTIAL_HPP
 #define DIFFERENTIAL_HPP
 
+#include "exceptions/todo.hpp"
 #include "expression.hpp"
 #include "values/unknown.hpp"
-#include "exceptions/todo.hpp"
 
 class Differential : public Expression
 {
@@ -14,6 +14,8 @@ private:
 public:
     Differential(Expression &argument, Unknown &unknown) : argument(argument), unknown(unknown) {}
     ~Differential() {}
+
+    Expression *simplified() const override { return argument.differentiated(unknown); }
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }

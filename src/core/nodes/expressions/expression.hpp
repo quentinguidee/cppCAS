@@ -14,6 +14,8 @@ public:
 
     Expression &self() const { return const_cast<Expression &>(*this); }
 
+    virtual Expression *simplified() const { return &self(); }
+
     virtual bool isPositive() const = 0;
     virtual bool isZero() const = 0;
     virtual bool isNegative() const = 0;

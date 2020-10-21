@@ -12,6 +12,8 @@ public:
     Opposite(Expression &argument) : argument(argument) {}
     ~Opposite() {}
 
+    Expression *simplified() const override { return argument.opposite(); }
+
     std::string toString() const override;
     std::string toLaTeX() const override;
 

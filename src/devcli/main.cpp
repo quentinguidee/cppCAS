@@ -1,8 +1,7 @@
 #include <iostream>
-
-#include <parser/parser.hpp>
 #include <parser/lexer.hpp>
 #include <parser/parse_tree.hpp>
+#include <parser/parser.hpp>
 
 int main()
 {
@@ -27,7 +26,7 @@ int main()
         std::cout << ParseTree(tokens).toString() << "\n\n";
 
         std::cout << "== EXPRESSION ==" << '\n';
-        std::cout << ParseTree(tokens).getExpression().toString() << '\n'
+        std::cout << ParseTree(tokens).getExpression().simplified()->toString() << '\n'
                   << std::endl;
     }
     return 0;

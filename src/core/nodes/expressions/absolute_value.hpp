@@ -12,6 +12,8 @@ public:
     AbsoluteValue(Expression &argument) : argument(argument) {}
     ~AbsoluteValue() {}
 
+    Expression *simplified() const override { return argument.absoluteValue(); }
+
     std::string toString() const override;
     std::string toLaTeX() const override;
 
