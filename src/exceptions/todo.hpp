@@ -3,17 +3,10 @@
 
 #include <stdexcept>
 
-class TODO : public std::exception
+class TODO : public std::logic_error
 {
-private:
-    std::string message;
-
 public:
-    TODO(const char *message = "Not implemented.") {}
-    const char *what() const noexcept
-    {
-        return message.c_str();
-    }
+    TODO() : std::logic_error("Not implemented") {}
 };
 
 #endif /* NOT_IMPLEMENTED_HPP */
