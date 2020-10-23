@@ -26,7 +26,8 @@ int main()
         std::cout << ParseTree(tokens).toString() << "\n\n";
 
         std::cout << "== EXPRESSION ==" << '\n';
-        std::cout << ParseTree(tokens).getExpression().simplified()->toString() << '\n'
+        std::cout << ParseTree(tokens).getExpression().simplified()->toString() << '\n';
+        std::cout << ParseTree(tokens).getExpression().simplified()->toLaTeX() << '\n'
                   << std::endl;
     }
     return 0;
