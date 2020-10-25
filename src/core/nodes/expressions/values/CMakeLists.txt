@@ -1,13 +1,16 @@
 set(HEADERS
-    value.hpp
-    unknown.hpp
     integer.hpp
+    natural.hpp
+    rational.hpp
+    real.hpp
+    unknown.hpp
+    value.hpp
 )
 
 set(SOURCES
-    value.cpp
+    real.cpp
     unknown.cpp
-    integer.cpp
+    value.cpp
 )
 
 target_sources(cppCAS PUBLIC ${HEADERS} ${SOURCES})

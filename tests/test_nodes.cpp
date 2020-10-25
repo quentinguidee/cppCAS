@@ -51,6 +51,33 @@ TEST_CASE("Integer", "[CORE]")
     REQUIRE(int2.absoluteValue()->toString() == "2");
 }
 
+TEST_CASE("Real", "[CORE]")
+{
+    Real real1 = 3.7;
+    Real real2 = -2.3;
+
+    REQUIRE(real1.isPositive() == true);
+    REQUIRE(real1.isStrictlyPositive() == true);
+    REQUIRE(real1.isZero() == false);
+    REQUIRE(real1.isStrictlyNegative() == false);
+    REQUIRE(real1.isNegative() == false);
+    REQUIRE(real1.isEven() == false);
+    REQUIRE(real1.isOdd() == false);
+
+    REQUIRE(real2.isPositive() == false);
+    REQUIRE(real2.isStrictlyPositive() == false);
+    REQUIRE(real2.isZero() == false);
+    REQUIRE(real2.isStrictlyNegative() == true);
+    REQUIRE(real2.isNegative() == true);
+    REQUIRE(real2.isEven() == false);
+    REQUIRE(real2.isOdd() == false);
+
+    REQUIRE(real1.opposite()->toString() == "-3.700000");
+
+    REQUIRE(real1.absoluteValue()->toString() == "3.700000");
+    REQUIRE(real2.absoluteValue()->toString() == "2.300000");
+}
+
 TEST_CASE("Power", "[CORE]")
 {
     Integer int1 = 2;

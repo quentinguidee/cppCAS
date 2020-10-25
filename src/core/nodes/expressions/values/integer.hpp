@@ -1,35 +1,26 @@
 #ifndef INTEGER_HPP
 #define INTEGER_HPP
 
-#include "value.hpp"
+#include <cmath>
 
-class Integer : public Value
+#include "../expression.hpp"
+#include "rational.hpp"
+
+class Integer : public Rational
 {
-private:
-    int value;
-
 public:
-    Integer(int value) : value(value) {}
+    Integer(int value) : Rational(value) {}
     ~Integer() {}
 
-    std::string toString() const override { return std::to_string(value); }
-    std::string toLaTeX() const override { return toString(); }
+    std::string toString() const override { return std::to_string((int)round(value)); }
+    std::string toLaTeX() const override { return std::to_string((int)round(value)); }
 
-    bool isPositive() const override { return value >= 0; }
-    bool isZero() const override { return value == 0; }
-    bool isNegative() const override { return value <= 0; }
-
-    bool isStrictlyPositive() const { return value > 0; }
-    bool isStrictlyNegative() const { return value < 0; }
-
-    bool isEven() const override { return value % 2 == 0; }
-    bool isOdd() const override { return value % 2 != 0; }
+    Rational toRational() const { return Rational(value); }
 
     Expression *opposite() const override { return new Integer(-value); }
-    Expression *absoluteValue() const override;
-    Expression *differentiated(Unknown &unknown) const override { return new Integer(0); };
+    Expression *differentiated(Unknown &unknown) const override { return new Integer(0); }
 
-    Integer operator=(int i) const { return Integer(i); }
+    Integer operator=(int value) const { return Integer(value); }
 };
 
 #endif /* INTEGER_HPP */
