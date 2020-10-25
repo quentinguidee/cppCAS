@@ -239,10 +239,10 @@ TEST_CASE("Lexer", "[PARSER]")
     std::vector<Token> tokens;
 
     tokens = Lexer::execute("2.3+1");
-    REQUIRE(Lexer::tokensToString(tokens) == "[(11, '2.3'), (0, '+'), (11, '1'), ]");
+    REQUIRE(Lexer::tokensToString(tokens) == "[(12, '2.3'), (0, '+'), (11, '1'), ]");
 
     tokens = Lexer::execute("abs(x)");
-    REQUIRE(Lexer::tokensToString(tokens) == "[(12, 'abs'), (5, '('), (14, 'x'), (6, ')'), ]");
+    REQUIRE(Lexer::tokensToString(tokens) == "[(13, 'abs'), (5, '('), (15, 'x'), (6, ')'), ]");
 }
 
 TEST_CASE("Parser", "[PARSER]")
@@ -255,7 +255,7 @@ TEST_CASE("Parser", "[PARSER]")
 
     tokens = Lexer::execute("sin(7/3*2)+2+3");
     tokens = Parser::reorderTokens(tokens);
-    REQUIRE(Lexer::tokensToString(tokens) == "[(11, '7'), (11, '3'), (3, '/'), (11, '2'), (2, '*'), (12, 'sin'), (11, '2'), (0, '+'), (11, '3'), (0, '+'), ]");
+    REQUIRE(Lexer::tokensToString(tokens) == "[(11, '7'), (11, '3'), (3, '/'), (11, '2'), (2, '*'), (13, 'sin'), (11, '2'), (0, '+'), (11, '3'), (0, '+'), ]");
 }
 
 TEST_CASE("Parse Tree", "[PARSER]")

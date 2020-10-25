@@ -20,7 +20,9 @@ enum class TokenType
     leftbracket,
     rightbracket,
 
-    digit,
+    integer,
+    real,
+
     alpha,
     dot,
 

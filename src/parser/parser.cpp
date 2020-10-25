@@ -8,7 +8,7 @@ std::vector<Token> Parser::reorderTokens(std::vector<Token> &tokens)
     for (int i = 0; i < tokens.size(); i++)
     {
         Token token = tokens[i];
-        if (token.getType() == TokenType::digit || token.getType() == TokenType::symbol)
+        if (isValue(token))
         {
             output.push_back(token);
         }
@@ -90,6 +90,14 @@ Parser::Associativity Parser::associativityOf(Token token)
         }
     }
     throw std::exception();
+}
+
+bool Parser::isValue(Token token)
+{
+    TokenType type = token.getType();
+    return type == TokenType::real ||
+           type == TokenType::integer ||
+           type == TokenType::symbol;
 }
 
 bool Parser::isOperator(Token token)

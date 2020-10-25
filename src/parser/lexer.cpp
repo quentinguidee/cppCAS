@@ -12,8 +12,9 @@ std::vector<Token> Lexer::execute(std::string input)
         std::string value;
         if (isdigit(character))
         {
-            value = scanDigit(input, i);
-            type = TokenType::digit;
+            std::pair<TokenType, std::string> p = scanDigit(input, i);
+            type = p.first;
+            value = p.second;
         }
         else if (isalpha(character))
         {
@@ -41,20 +42,27 @@ std::string Lexer::tokensToString(std::vector<Token> tokens)
 }
 
 // TODO: Merge scanDigit and scanAlpha.
-std::string Lexer::scanDigit(std::string input, int &i)
+std::pair<TokenType, std::string> Lexer::scanDigit(std::string input, int &i)
 {
     std::string number = std::string(1, input[i]);
+    TokenType type = TokenType::integer;
     char next = input[i + 1];
     int end = input.size();
     while (isdigit(next) || next == '.' || next == ',')
     {
+        if (next == '.' || next == ',')
+        {
+            type = TokenType::real;
+        }
         number += next;
         if (i + 1 >= end)
-            return number;
+        {
+            break;
+        }
         i++;
         next = input[i + 1];
     }
-    return number;
+    return std::pair<TokenType, std::string>(type, number);
 }
 
 std::string Lexer::scanAlpha(std::string input, int &i)

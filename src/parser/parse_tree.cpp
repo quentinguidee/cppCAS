@@ -17,7 +17,7 @@ ParseTree::ParseTree(std::vector<Token> tokens)
     std::vector<std::reference_wrapper<Node>> stack{};
     for (Token &token : tokens)
     {
-        if (token.getType() == TokenType::digit || token.getType() == TokenType::symbol)
+        if (Parser::isValue(token))
         {
             Node *node = new Node(token);
             stack.push_back(std::ref(*node));

@@ -33,6 +33,7 @@ public:
     static std::vector<Token> reorderTokens(std::vector<Token> &tokens);
     static int precedenceOf(Token type);
     static Associativity associativityOf(Token type);
+    static bool isValue(Token token);
     static bool isOperator(Token token);
 };
 
