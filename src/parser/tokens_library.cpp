@@ -6,6 +6,7 @@
 #include "../core/nodes/expressions/differential.hpp"
 #include "../core/nodes/expressions/division.hpp"
 #include "../core/nodes/expressions/expression.hpp"
+#include "../core/nodes/expressions/integral.hpp"
 #include "../core/nodes/expressions/multiplication.hpp"
 #include "../core/nodes/expressions/opposite.hpp"
 #include "../core/nodes/expressions/power.hpp"
@@ -24,6 +25,7 @@ std::map<std::string, std::function<Expression *(ParseTree::Node &)>> functions{
     {"tan",                 [](ParseTree::Node &node) -> Expression * { return new Tan              (node.getExpression(0)); }},
     {"opposite",            [](ParseTree::Node &node) -> Expression * { return new Opposite         (node.getExpression(0)); }},
     {"diff",                [](ParseTree::Node &node) -> Expression * { return new Differential     (node.getExpression(0), *new Unknown()); }},
+    {"int",                 [](ParseTree::Node &node) -> Expression * { return new Integral         (node.getExpression(0), *new Unknown()); }},
     {"abs",                 [](ParseTree::Node &node) -> Expression * { return new AbsoluteValue    (node.getExpression(0)); }},
 };
 
