@@ -30,6 +30,7 @@ public:
     Expression *opposite() const override { return &argument; };
     Expression *absoluteValue() const override;
     Expression *differentiated(Unknown &unknown) const override;
+    Expression *integrated(Unknown &unknown) const override;
 };
 
 #endif /* OPPOSITE_HPP */

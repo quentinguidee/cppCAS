@@ -1,11 +1,11 @@
 #include "expression.hpp"
 
 #include "absolute_value.hpp"
+#include "assert.h"
 #include "differential.hpp"
+#include "integral.hpp"
 #include "opposite.hpp"
 #include "values/unknown.hpp"
-
-#include "assert.h"
 
 Expression *Expression::opposite() const
 {
@@ -20,4 +20,9 @@ Expression *Expression::absoluteValue() const
 Expression *Expression::differentiated(Unknown &unknown) const
 {
     return new Differential(self(), unknown);
+}
+
+Expression *Expression::integrated(Unknown &unknown) const
+{
+    return new Integral(self(), unknown);
 }

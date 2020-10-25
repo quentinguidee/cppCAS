@@ -19,3 +19,8 @@ Expression *Opposite::differentiated(Unknown &unknown) const
 {
     return new Opposite(*argument.differentiated(unknown));
 }
+
+Expression *Opposite::integrated(Unknown &unknown) const
+{
+    return new Opposite(*argument.integrated(unknown));
+}

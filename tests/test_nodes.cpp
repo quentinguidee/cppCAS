@@ -12,6 +12,7 @@
 #include <core/nodes/expressions/cos.hpp>
 #include <core/nodes/expressions/differential.hpp>
 #include <core/nodes/expressions/division.hpp>
+#include <core/nodes/expressions/integral.hpp>
 #include <core/nodes/expressions/multiplication.hpp>
 #include <core/nodes/expressions/opposite.hpp>
 #include <core/nodes/expressions/power.hpp>
@@ -223,6 +224,9 @@ TEST_CASE("Unknown", "[CORE]")
 
     REQUIRE(x.differentiated(x)->toString() == "1");
     REQUIRE(x.differentiated(y)->toString() == "0");
+
+    REQUIRE(x.integrated(x)->toString() == "x^2/2");
+    REQUIRE(x.integrated(y)->toString() == "∫x dy");
 }
 
 TEST_CASE("Differential", "[CORE]")
@@ -232,6 +236,15 @@ TEST_CASE("Differential", "[CORE]")
 
     REQUIRE(differential.toString() == "d/dx(x)");
     REQUIRE(differential.toLaTeX() == "\\frac{d}{dx}\\left(x\\right)");
+}
+
+TEST_CASE("Integral", "[CORE]")
+{
+    Unknown x{};
+    Integral integral(x, x);
+
+    REQUIRE(integral.toString() == "∫x dx");
+    REQUIRE(integral.toLaTeX() == "\\int{x dx}");
 }
 
 TEST_CASE("Lexer", "[PARSER]")

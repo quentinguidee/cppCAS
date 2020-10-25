@@ -5,6 +5,7 @@ set(HEADERS
     differential.hpp
     division.hpp
     expression.hpp
+    integral.hpp
     multi_node.hpp
     multiplication.hpp
     opposite.hpp
@@ -19,6 +20,7 @@ set(SOURCES
     differential.cpp
     division.cpp
     expression.cpp
+    integral.cpp
     multi_node.cpp
     opposite.cpp
     power.cpp

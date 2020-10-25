@@ -7,8 +7,8 @@ class Value : public Expression
 {
 private:
 public:
-    Value(){};
-    ~Value(){};
+    Value() {}
+    ~Value() {}
 };
 
 #endif /* VALUE_HPP */
