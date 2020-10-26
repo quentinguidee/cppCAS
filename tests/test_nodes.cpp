@@ -18,6 +18,8 @@
 #include <core/nodes/expressions/power.hpp>
 #include <core/nodes/expressions/sin.hpp>
 #include <core/nodes/expressions/tan.hpp>
+#include <core/nodes/expressions/values/complex.hpp>
+#include <core/nodes/expressions/values/imaginary.hpp>
 #include <core/nodes/expressions/values/integer.hpp>
 #include <core/nodes/expressions/values/unknown.hpp>
 #include <core/nodes/node.hpp>
@@ -77,6 +79,16 @@ TEST_CASE("Real", "[CORE]")
 
     REQUIRE(real1.absoluteValue()->toString() == "3.700000");
     REQUIRE(real2.absoluteValue()->toString() == "2.300000");
+}
+
+TEST_CASE("Complex", "[CORE]")
+{
+    Real re(3);
+    Imaginary im(re);
+    Complex complex(re, im);
+
+    REQUIRE(complex.toString() == "3+3i");
+    REQUIRE(complex.toLaTeX() == "3+3i");
 }
 
 TEST_CASE("Power", "[CORE]")

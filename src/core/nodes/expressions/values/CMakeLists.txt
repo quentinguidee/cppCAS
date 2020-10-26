@@ -1,4 +1,6 @@
 set(HEADERS
+    complex.hpp
+    imaginary.hpp
     integer.hpp
     natural.hpp
     rational.hpp
@@ -8,6 +10,8 @@ set(HEADERS
 )
 
 set(SOURCES
+    complex.cpp
+    imaginary.cpp
     real.cpp
     unknown.cpp
     value.cpp
