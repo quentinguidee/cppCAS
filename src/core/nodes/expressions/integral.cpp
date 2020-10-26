@@ -9,5 +9,5 @@ std::string Integral::toString() const
 
 std::string Integral::toLaTeX() const
 {
-    return "\\int{" + argument.toLaTeX() + " d " + unknown.toLaTeX() + "}";
+    return "\\int{" + argument.toLaTeX() + " d" + unknown.toLaTeX() + "}";
 }
