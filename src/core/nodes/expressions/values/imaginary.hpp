@@ -8,10 +8,10 @@
 class Imaginary : public Value
 {
 private:
-    Real value;
+    Real &value;
 
 public:
-    Imaginary(Real value) : value(value) {}
+    Imaginary(Real &value) : value(value) {}
     ~Imaginary() {}
 
     bool isPositive() const override { throw TODO(); }

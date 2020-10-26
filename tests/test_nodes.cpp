@@ -87,8 +87,8 @@ TEST_CASE("Complex", "[CORE]")
     Imaginary im(re);
     Complex complex(re, im);
 
-    REQUIRE(complex.toString() == "3+3i");
-    REQUIRE(complex.toLaTeX() == "3+3i");
+    REQUIRE(complex.toString() == "3.000000+3.000000i");
+    REQUIRE(complex.toLaTeX() == "3.000000+3.000000i");
 }
 
 TEST_CASE("Power", "[CORE]")
