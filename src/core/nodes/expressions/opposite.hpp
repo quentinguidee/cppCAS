@@ -18,7 +18,7 @@ public:
     std::string toString() const override;
     std::string toLaTeX() const override;
 
-    bool isPositive() const override { return argument.isNegative(); };
+    bool isPositive() const override { return argument.isNegative(); }
     bool isZero() const override { return argument.isZero(); }
     bool isNegative() const override { return argument.isPositive(); }
 
