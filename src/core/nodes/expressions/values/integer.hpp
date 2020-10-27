@@ -9,7 +9,7 @@
 class Integer : public Rational
 {
 public:
-    Integer(int value) : Rational(value) {}
+    Integer(int value);
     ~Integer() {}
 
     std::string toString() const override { return std::to_string((int)round(value)); }

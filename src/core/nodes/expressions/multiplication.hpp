@@ -1,17 +1,17 @@
 #ifndef MULTIPLICATION_HPP
 #define MULTIPLICATION_HPP
 
-#include <vector>
 #include <initializer_list>
+#include <vector>
 
+#include "exceptions/todo.hpp"
 #include "expression.hpp"
 #include "multi_node.hpp"
-#include "exceptions/todo.hpp"
 
 class Multiplication : public MultiNode
 {
 public:
-    Multiplication(std::initializer_list<std::reference_wrapper<Expression>> children) : MultiNode('*', "\\cdot ", children) {}
+    Multiplication(std::initializer_list<std::reference_wrapper<Expression>> children);
     ~Multiplication() {}
 
     bool isPositive() const override { throw TODO(); }

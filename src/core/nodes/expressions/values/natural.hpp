@@ -6,7 +6,7 @@
 class Natural : public Integer
 {
 public:
-    Natural(int value) : Integer(value) {}
+    Natural(int value);
     ~Natural() {}
 
     Integer toInteger() const { return Integer(value); }

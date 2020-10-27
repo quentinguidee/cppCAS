@@ -10,7 +10,7 @@ private:
     Expression &argument;
 
 public:
-    Cos(Expression &argument) : argument(argument) {}
+    Cos(Expression &argument);
     ~Cos() {}
 
     bool isPositive() const override { throw TODO(); }

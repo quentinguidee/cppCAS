@@ -4,6 +4,11 @@
 #include "division.hpp"
 #include "sin.hpp"
 
+Tan::Tan(Expression &argument) :
+    argument(argument)
+{
+}
+
 std::string Tan::toString() const
 {
     return "tan(" + argument.toString() + ")";

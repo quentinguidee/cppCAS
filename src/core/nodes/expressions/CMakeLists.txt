@@ -16,12 +16,14 @@ set(HEADERS
 
 set(SOURCES
     absolute_value.cpp
+    addition.cpp
     cos.cpp
     differential.cpp
     division.cpp
     expression.cpp
     integral.cpp
     multi_node.cpp
+    multiplication.cpp
     opposite.cpp
     power.cpp
     sin.cpp

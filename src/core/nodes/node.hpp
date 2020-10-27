@@ -9,6 +9,7 @@ private:
 public:
     Node() {}
     ~Node() {}
+
     virtual std::string toString() const = 0;
     virtual std::string toLaTeX() const = 0;
 };

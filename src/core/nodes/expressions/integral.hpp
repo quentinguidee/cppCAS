@@ -12,7 +12,7 @@ private:
     Expression &argument;
 
 public:
-    Integral(Expression &argument, Unknown unknown) : argument(argument), unknown(unknown) {}
+    Integral(Expression &argument, Unknown unknown);
     ~Integral() {}
 
     Expression *simplified() const override { return argument.integrated(unknown); }

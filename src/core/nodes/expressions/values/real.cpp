@@ -4,6 +4,15 @@
 
 #include "integer.hpp"
 
+Real::Real(double value) :
+    value(value)
+{
+}
+Real::Real(int value) :
+    value(value)
+{
+}
+
 Expression *Real::absoluteValue() const
 {
     return isPositive() ? &self() : opposite();

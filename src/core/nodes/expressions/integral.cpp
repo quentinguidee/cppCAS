@@ -2,6 +2,12 @@
 
 #include "values/unknown.hpp"
 
+Integral::Integral(Expression &argument, Unknown unknown) :
+    argument(argument),
+    unknown(unknown)
+{
+}
+
 std::string Integral::toString() const
 {
     return "∫" + argument.toString() + " d" + unknown.toString();

@@ -4,6 +4,11 @@
 #include "opposite.hpp"
 #include "sin.hpp"
 
+Cos::Cos(Expression &argument) :
+    argument(argument)
+{
+}
+
 std::string Cos::toString() const
 {
     return "cos(" + argument.toString() + ")";

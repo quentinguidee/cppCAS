@@ -9,7 +9,7 @@ private:
     Expression &argument;
 
 public:
-    AbsoluteValue(Expression &argument) : argument(argument) {}
+    AbsoluteValue(Expression &argument);
     ~AbsoluteValue() {}
 
     Expression *simplified() const override { return argument.absoluteValue(); }

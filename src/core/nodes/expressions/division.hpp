@@ -1,8 +1,8 @@
 #ifndef DIVISION_HPP
 #define DIVISION_HPP
 
-#include "expression.hpp"
 #include "exceptions/todo.hpp"
+#include "expression.hpp"
 
 class Division : public Expression
 {
@@ -11,7 +11,7 @@ private:
     Expression &denominator;
 
 public:
-    Division(Expression &numerator, Expression &denominator) : numerator(numerator), denominator(denominator) {}
+    Division(Expression &numerator, Expression &denominator);
     ~Division() {}
 
     std::string toString() const override;

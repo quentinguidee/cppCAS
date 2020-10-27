@@ -11,7 +11,7 @@ private:
     const std::string symbol;
 
 public:
-    Unknown(const std::string symbol = "x") : symbol(symbol) {}
+    Unknown(const std::string symbol = "x");
     ~Unknown() {}
 
     std::string getSymbol() const { return symbol; }

@@ -1,5 +1,11 @@
 #include "power.hpp"
 
+Power::Power(Expression &base, Expression &power) :
+    base(base),
+    power(power)
+{
+}
+
 std::string Power::toString() const
 {
     return base.toString() + "^" + power.toString();

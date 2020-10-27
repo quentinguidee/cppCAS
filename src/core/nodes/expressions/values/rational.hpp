@@ -6,8 +6,8 @@
 class Rational : public Real
 {
 public:
-    Rational(double value) : Real(value) {}
-    Rational(int value) : Real(value) {}
+    Rational(double value);
+    Rational(int value);
     ~Rational() {}
 
     Real toReal() const { return Real(value); }

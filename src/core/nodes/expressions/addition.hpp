@@ -1,13 +1,13 @@
 #ifndef ADDITION_HPP
 #define ADDITION_HPP
 
-#include "multi_node.hpp"
 #include "exceptions/todo.hpp"
+#include "multi_node.hpp"
 
 class Addition : public MultiNode
 {
 public:
-    Addition(std::initializer_list<std::reference_wrapper<Expression>> children) : MultiNode('+', "+", children) {}
+    Addition(std::initializer_list<std::reference_wrapper<Expression>> children);
     ~Addition() {}
 
     bool isPositive() const override { throw TODO(); }

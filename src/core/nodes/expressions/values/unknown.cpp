@@ -5,6 +5,11 @@
 #include "../power.hpp"
 #include "integer.hpp"
 
+Unknown::Unknown(const std::string symbol) :
+    symbol(symbol)
+{
+}
+
 Expression *Unknown::differentiated(Unknown unknown) const
 {
     return symbol == unknown.getSymbol() ? new Integer(1) : new Integer(0);

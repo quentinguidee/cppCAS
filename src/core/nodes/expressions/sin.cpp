@@ -3,6 +3,11 @@
 #include "cos.hpp"
 #include "multiplication.hpp"
 
+Sin::Sin(Expression &argument) :
+    argument(argument)
+{
+}
+
 std::string Sin::toString() const
 {
     return "sin(" + argument.toString() + ")";

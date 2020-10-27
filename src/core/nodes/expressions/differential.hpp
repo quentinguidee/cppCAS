@@ -12,7 +12,7 @@ private:
     Expression &argument;
 
 public:
-    Differential(Expression &argument, Unknown unknown) : argument(argument), unknown(unknown) {}
+    Differential(Expression &argument, Unknown unknown);
     ~Differential() {}
 
     Expression *simplified() const override { return argument.differentiated(unknown); }

@@ -1,5 +1,11 @@
 #include "absolute_value.hpp"
+
 #include "opposite.hpp"
+
+AbsoluteValue::AbsoluteValue(Expression &argument) :
+    argument(argument)
+{
+}
 
 std::string AbsoluteValue::toString() const
 {

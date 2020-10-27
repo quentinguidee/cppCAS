@@ -12,8 +12,8 @@ protected:
     double value;
 
 public:
-    Real(double value) : value(value) {}
-    Real(int value) : value(value) {}
+    Real(double value);
+    Real(int value);
     ~Real() {}
 
     int *toIntIfPossible() const;

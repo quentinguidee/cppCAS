@@ -10,7 +10,7 @@ private:
     Expression &argument;
 
 public:
-    Tan(Expression &argument) : argument(argument) {}
+    Tan(Expression &argument);
     ~Tan() {}
 
     bool isPositive() const override { throw TODO(); }

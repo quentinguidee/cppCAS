@@ -10,7 +10,7 @@ private:
     Expression &argument;
 
 public:
-    Opposite(Expression &argument) : argument(argument) {}
+    Opposite(Expression &argument);
     ~Opposite() {}
 
     Expression *simplified() const override { return argument.opposite(); }

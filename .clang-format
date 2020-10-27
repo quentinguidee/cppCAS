@@ -3,6 +3,8 @@ BasedOnStyle: Google
 IndentWidth: 4
 AccessModifierOffset: -4
 
+BreakConstructorInitializers: AfterColon
+
 BreakBeforeBraces: Custom
 BraceWrapping:
     AfterEnum: true
@@ -14,5 +16,6 @@ BraceWrapping:
     SplitEmptyFunction: false
 
 AllowShortCaseLabelsOnASingleLine: true
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
 
 ColumnLimit: 0

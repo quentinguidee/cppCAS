@@ -1,9 +1,9 @@
 #ifndef MULTI_NODE_HPP
 #define MULTI_NODE_HPP
 
-#include <vector>
-#include <initializer_list>
 #include <functional>
+#include <initializer_list>
+#include <vector>
 
 #include "expression.hpp"
 
@@ -15,7 +15,7 @@ private:
     std::vector<std::reference_wrapper<Expression>> children;
 
 public:
-    MultiNode(char symbol, std::string latexSymbol, std::initializer_list<std::reference_wrapper<Expression>> children) : symbol(symbol), latexSymbol(latexSymbol), children(children) {}
+    MultiNode(char symbol, std::string latexSymbol, std::initializer_list<std::reference_wrapper<Expression>> children);
     ~MultiNode() {}
 
     virtual bool isPositive() const override = 0;

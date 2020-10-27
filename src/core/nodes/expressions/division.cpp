@@ -1,5 +1,11 @@
 #include "division.hpp"
 
+Division::Division(Expression &numerator, Expression &denominator) :
+    numerator(numerator),
+    denominator(denominator)
+{
+}
+
 std::string Division::toString() const
 {
     return numerator.toString() + "/" + denominator.toString();

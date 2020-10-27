@@ -11,7 +11,7 @@ private:
     Expression &argument;
 
 public:
-    Sin(Expression &argument) : argument(argument) {}
+    Sin(Expression &argument);
     ~Sin() {}
 
     bool isPositive() const override { throw TODO(); }

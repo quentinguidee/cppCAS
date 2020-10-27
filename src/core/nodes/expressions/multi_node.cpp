@@ -1,7 +1,14 @@
 #include "multi_node.hpp"
 
-#include <vector>
 #include <iostream>
+#include <vector>
+
+MultiNode::MultiNode(char symbol, std::string latexSymbol, std::initializer_list<std::reference_wrapper<Expression>> children) :
+    symbol(symbol),
+    latexSymbol(latexSymbol),
+    children(children)
+{
+}
 
 std::string MultiNode::toString() const
 {

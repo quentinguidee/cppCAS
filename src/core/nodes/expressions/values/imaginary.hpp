@@ -11,7 +11,7 @@ private:
     Real value;
 
 public:
-    Imaginary(Real value) : value(value) {}
+    Imaginary(Real value);
     ~Imaginary() {}
 
     bool isPositive() const override { throw TODO(); }
