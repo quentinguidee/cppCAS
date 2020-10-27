@@ -13,7 +13,7 @@ std::string Sin::toLaTeX() const
     return "\\sin{(" + argument.toLaTeX() + ")}";
 }
 
-Expression *Sin::differentiated(Unknown &unknown) const
+Expression *Sin::differentiated(Unknown unknown) const
 {
     Expression *diff = argument.differentiated(unknown);
     Cos *cos = new Cos(argument);

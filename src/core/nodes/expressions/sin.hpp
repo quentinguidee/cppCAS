@@ -1,8 +1,9 @@
 #ifndef SIN_HPP
 #define SIN_HPP
 
-#include "expression.hpp"
 #include "exceptions/todo.hpp"
+#include "expression.hpp"
+#include "values/unknown.hpp"
 
 class Sin : public Expression
 {
@@ -23,7 +24,7 @@ public:
     std::string toString() const override;
     std::string toLaTeX() const override;
 
-    Expression *differentiated(Unknown &unknown) const override;
+    Expression *differentiated(Unknown unknown) const override;
 };
 
 #endif /* SIN_HPP */

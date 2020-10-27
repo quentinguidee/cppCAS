@@ -18,7 +18,7 @@ public:
     Rational toRational() const { return Rational(value); }
 
     Expression *opposite() const override { return new Integer(-value); }
-    Expression *differentiated(Unknown &unknown) const override { return new Integer(0); }
+    Expression *differentiated(Unknown unknown) const override { return new Integer(0); }
 
     Integer operator=(int value) const { return Integer(value); }
 };

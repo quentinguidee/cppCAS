@@ -1,8 +1,8 @@
 #ifndef TAN_HPP
 #define TAN_HPP
 
-#include "expression.hpp"
 #include "exceptions/todo.hpp"
+#include "expression.hpp"
 
 class Tan : public Expression
 {
@@ -23,7 +23,7 @@ public:
     std::string toString() const override;
     std::string toLaTeX() const override;
 
-    Expression *differentiated(Unknown &unknown) const override;
+    Expression *differentiated(Unknown unknown) const override;
 };
 
 #endif /* TAN_HPP */

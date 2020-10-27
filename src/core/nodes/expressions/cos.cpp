@@ -1,8 +1,8 @@
 #include "cos.hpp"
 
 #include "multiplication.hpp"
-#include "sin.hpp"
 #include "opposite.hpp"
+#include "sin.hpp"
 
 std::string Cos::toString() const
 {
@@ -14,7 +14,7 @@ std::string Cos::toLaTeX() const
     return "\\cos{(" + argument.toLaTeX() + ")}";
 }
 
-Expression *Cos::differentiated(Unknown &unknown) const
+Expression *Cos::differentiated(Unknown unknown) const
 {
     Expression *diff = argument.differentiated(unknown);
     Opposite *opposite = new Opposite(*new Sin(argument));

@@ -9,11 +9,11 @@
 class Complex : public Value
 {
 private:
-    Real &real;
-    Imaginary &imaginary;
+    Real real;
+    Imaginary imaginary;
 
 public:
-    Complex(Real &real, Imaginary &imaginary) : real(real), imaginary(imaginary) {}
+    Complex(Real real, Imaginary imaginary) : real(real), imaginary(imaginary) {}
     ~Complex() {}
 
     bool isPositive() const override { throw TODO(); }

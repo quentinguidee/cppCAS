@@ -17,12 +17,12 @@ Expression *Expression::absoluteValue() const
     return isPositive() ? &self() : new AbsoluteValue(self());
 }
 
-Expression *Expression::differentiated(Unknown &unknown) const
+Expression *Expression::differentiated(Unknown unknown) const
 {
     return new Differential(self(), unknown);
 }
 
-Expression *Expression::integrated(Unknown &unknown) const
+Expression *Expression::integrated(Unknown unknown) const
 {
     return new Integral(self(), unknown);
 }

@@ -8,11 +8,11 @@
 class Differential : public Expression
 {
 private:
-    Unknown &unknown;
+    Unknown unknown;
     Expression &argument;
 
 public:
-    Differential(Expression &argument, Unknown &unknown) : argument(argument), unknown(unknown) {}
+    Differential(Expression &argument, Unknown unknown) : argument(argument), unknown(unknown) {}
     ~Differential() {}
 
     Expression *simplified() const override { return argument.differentiated(unknown); }

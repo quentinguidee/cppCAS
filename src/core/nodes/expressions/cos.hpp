@@ -1,8 +1,8 @@
 #ifndef COS_HPP
 #define COS_HPP
 
-#include "expression.hpp"
 #include "exceptions/todo.hpp"
+#include "expression.hpp"
 
 class Cos : public Expression
 {
@@ -23,7 +23,7 @@ public:
     std::string toString() const override;
     std::string toLaTeX() const override;
 
-    Expression *differentiated(Unknown &unknown) const override;
+    Expression *differentiated(Unknown unknown) const override;
 };
 
 #endif /* COS_HPP */

@@ -1,8 +1,8 @@
 #include "tan.hpp"
 
+#include "cos.hpp"
 #include "division.hpp"
 #include "sin.hpp"
-#include "cos.hpp"
 
 std::string Tan::toString() const
 {
@@ -14,7 +14,7 @@ std::string Tan::toLaTeX() const
     return "\\tan{(" + argument.toLaTeX() + ")}";
 }
 
-Expression *Tan::differentiated(Unknown &unknown) const
+Expression *Tan::differentiated(Unknown unknown) const
 {
     Division *division = new Division(
         *new Sin(argument),

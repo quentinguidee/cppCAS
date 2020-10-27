@@ -5,12 +5,12 @@
 #include "../power.hpp"
 #include "integer.hpp"
 
-Expression *Unknown::differentiated(Unknown &unknown) const
+Expression *Unknown::differentiated(Unknown unknown) const
 {
     return symbol == unknown.getSymbol() ? new Integer(1) : new Integer(0);
 }
 
-Expression *Unknown::integrated(Unknown &unknown) const
+Expression *Unknown::integrated(Unknown unknown) const
 {
     if (symbol == unknown.getSymbol())
     {

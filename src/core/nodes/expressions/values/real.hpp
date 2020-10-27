@@ -3,6 +3,7 @@
 
 #include <string>
 
+#include "unknown.hpp"
 #include "value.hpp"
 
 class Real : public Value
@@ -31,7 +32,7 @@ public:
     bool isOdd() const override;
 
     Expression *opposite() const override { return new Real(-value); }
-    Expression *differentiated(Unknown &unknown) const override { return new Real(0); }
+    Expression *differentiated(Unknown unknown) const override { return new Real(0); }
     virtual Expression *absoluteValue() const override;
 
     Real operator=(double value) const { return Real(value); }

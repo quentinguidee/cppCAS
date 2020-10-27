@@ -3,15 +3,16 @@
 
 #include "exceptions/todo.hpp"
 #include "expression.hpp"
+#include "values/unknown.hpp"
 
 class Integral : public Expression
 {
 private:
-    Unknown &unknown;
+    Unknown unknown;
     Expression &argument;
 
 public:
-    Integral(Expression &argument, Unknown &unknown) : argument(argument), unknown(unknown) {}
+    Integral(Expression &argument, Unknown unknown) : argument(argument), unknown(unknown) {}
     ~Integral() {}
 
     Expression *simplified() const override { return argument.integrated(unknown); }
