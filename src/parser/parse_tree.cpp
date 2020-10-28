@@ -46,9 +46,13 @@ ParseTree::ParseTree(std::vector<Token> tokens)
 std::string ParseTree::Node::toString(int level) const
 {
     std::string output = "\n";
-    for (int i = 0; i < level; i++)
+    for (int i = 1; i < level; i++)
     {
-        output += '\t';
+        output += "   ";
+    }
+    if (level != 0)
+    {
+        output += " ↳ ";
     }
     output += token.toString();
     for (Node node : children)
