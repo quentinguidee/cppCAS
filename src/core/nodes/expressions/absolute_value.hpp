@@ -15,7 +15,7 @@ public:
 
     Expression *clone() const override { return new AbsoluteValue(*this); }
 
-    Expression *simplified() const override { return argument.absoluteValue(); }
+    Expression *simplified() const override;
 
     std::string toString() const override;
     std::string toLaTeX() const override;
@@ -30,8 +30,8 @@ public:
     bool isEven() const override { return argument.isEven(); }
     bool isOdd() const override { return argument.isOdd(); }
 
-    Expression *opposite() const override;
-    Expression *absoluteValue() const override { return &self(); }
+    Expression *_opposite() const override;
+    Expression *_absoluteValue() const override { return clone(); }
 };
 
 #endif /* ABSOLUTE_VALUE_HPP */

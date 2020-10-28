@@ -18,7 +18,7 @@ public:
 
     Expression *clone() const override { return new Integral(*this); }
 
-    Expression *simplified() const override { return argument.integrated(unknown); }
+    Expression *simplified() const override { return argument._integrated(unknown); }
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }

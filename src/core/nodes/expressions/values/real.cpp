@@ -18,9 +18,9 @@ Real::Real(const Real &real) :
 {
 }
 
-Expression *Real::absoluteValue() const
+Expression *Real::_absoluteValue() const
 {
-    return isPositive() ? &self() : opposite();
+    return isPositive() ? clone() : opposite();
 }
 
 bool Real::isEven() const

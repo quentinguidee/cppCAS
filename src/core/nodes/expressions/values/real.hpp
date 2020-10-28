@@ -34,9 +34,9 @@ public:
     bool isEven() const override;
     bool isOdd() const override;
 
-    Expression *opposite() const override { return new Real(-value); }
-    Expression *differentiated(Unknown unknown) const override { return new Real(0); }
-    virtual Expression *absoluteValue() const override;
+    Expression *_opposite() const override { return new Real(-value); }
+    Expression *_differentiated(Unknown unknown) const override { return new Real(0); }
+    virtual Expression *_absoluteValue() const override;
 
     Real operator=(double value) const { return Real(value); }
 };

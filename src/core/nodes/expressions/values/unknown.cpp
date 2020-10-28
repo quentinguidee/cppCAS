@@ -15,16 +15,16 @@ Unknown::Unknown(const Unknown &unknown) :
 {
 }
 
-Expression *Unknown::differentiated(Unknown unknown) const
+Expression *Unknown::_differentiated(Unknown unknown) const
 {
     return symbol == unknown.getSymbol() ? new Integer(1) : new Integer(0);
 }
 
-Expression *Unknown::integrated(Unknown unknown) const
+Expression *Unknown::_integrated(Unknown unknown) const
 {
     if (symbol == unknown.getSymbol())
     {
-        return new Division(*new Power(self(), *new Integer(2)), *new Integer(2));
+        return new Division(*new Power(*clone(), *new Integer(2)), *new Integer(2));
     }
-    return Value::integrated(unknown);
+    return Value::_integrated(unknown);
 }

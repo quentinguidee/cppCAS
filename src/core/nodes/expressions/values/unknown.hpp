@@ -29,8 +29,8 @@ public:
     std::string toString() const override { return symbol; }
     std::string toLaTeX() const override { return symbol; }
 
-    Expression *differentiated(Unknown unknown) const override;
-    Expression *integrated(Unknown unknown) const override;
+    Expression *_differentiated(Unknown unknown) const override;
+    Expression *_integrated(Unknown unknown) const override;
 
     Unknown operator=(std::string symbol) { return Unknown(symbol); }
 };

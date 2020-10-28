@@ -34,7 +34,7 @@ public:
     std::string toString() const override;
     std::string toLaTeX() const override;
 
-    Expression *opposite() const override { return new Imaginary(dynamic_cast<Real &>(*value.opposite())); }
+    Expression *_opposite() const override { return new Imaginary(dynamic_cast<Real &>(*value.opposite())); }
 };
 
 #endif /* IMAGINARY_HPP */

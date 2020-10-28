@@ -16,7 +16,7 @@ public:
 
     Expression *clone() const override { return new Opposite(*this); }
 
-    Expression *simplified() const override { return argument.opposite(); }
+    Expression *simplified() const override { return argument._opposite(); }
 
     std::string toString() const override;
     std::string toLaTeX() const override;
@@ -31,10 +31,10 @@ public:
     bool isEven() const override { return argument.isEven(); }
     bool isOdd() const override { return argument.isOdd(); }
 
-    Expression *opposite() const override { return &argument; };
-    Expression *absoluteValue() const override;
-    Expression *differentiated(Unknown unknown) const override;
-    Expression *integrated(Unknown unknown) const override;
+    Expression *_opposite() const override { return &argument; };
+    Expression *_absoluteValue() const override;
+    Expression *_differentiated(Unknown unknown) const override;
+    Expression *_integrated(Unknown unknown) const override;
 };
 
 #endif /* OPPOSITE_HPP */

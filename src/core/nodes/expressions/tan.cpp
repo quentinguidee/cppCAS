@@ -24,7 +24,7 @@ std::string Tan::toLaTeX() const
     return "\\tan{(" + argument.toLaTeX() + ")}";
 }
 
-Expression *Tan::differentiated(Unknown unknown) const
+Expression *Tan::_differentiated(Unknown unknown) const
 {
     Division *division = new Division(
         *new Sin(argument),

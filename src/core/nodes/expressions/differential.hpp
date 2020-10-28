@@ -18,7 +18,7 @@ public:
 
     Expression *clone() const override { return new Differential(*this); }
 
-    Expression *simplified() const override { return argument.differentiated(unknown); }
+    Expression *simplified() const override { return argument._differentiated(unknown); }
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }
