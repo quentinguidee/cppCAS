@@ -6,7 +6,19 @@
 #include "integral.hpp"
 #include "modulus.hpp"
 #include "opposite.hpp"
+#include "parser/lexer.hpp"
+#include "parser/parse_tree.hpp"
+#include "parser/parser.hpp"
+#include "power.hpp"
 #include "values/unknown.hpp"
+
+Expression* Expression::from(std::string expression)
+{
+    std::vector<Token> tokens;
+    tokens = Lexer::execute(expression);
+    tokens = Parser::reorderTokens(tokens);
+    return &ParseTree(tokens).getExpression();
+}
 
 Expression* Expression::opposite() const
 {
@@ -33,6 +45,11 @@ Expression* Expression::modulus() const
     return Expression::_modulus()->simplified();
 }
 
+Expression* Expression::power(Expression& power) const
+{
+    return Expression::_power(power)->simplified();
+}
+
 Expression* Expression::_opposite() const
 {
     return new Opposite(*clone());
@@ -56,4 +73,9 @@ Expression* Expression::_integrated(Unknown unknown) const
 Expression* Expression::_modulus() const
 {
     return new Modulus(*clone());
+}
+
+Expression* Expression::_power(Expression& power) const
+{
+    return new Power(*clone(), power);
 }

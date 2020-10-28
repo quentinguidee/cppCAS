@@ -12,6 +12,8 @@ public:
     Expression() {}
     ~Expression() {}
 
+    static Expression *from(std::string expression);
+
     Expression &self() const { return const_cast<Expression &>(*this); }
     virtual Expression *clone() const = 0;
 
@@ -32,6 +34,7 @@ public:
     Expression *differentiated(Unknown unknown) const;
     Expression *integrated(Unknown unknown) const;
     Expression *modulus() const;
+    Expression *power(Expression &power) const;
 
     // Do not call these methods:
 
@@ -40,6 +43,7 @@ public:
     virtual Expression *_differentiated(Unknown unknown) const;
     virtual Expression *_integrated(Unknown unknown) const;
     virtual Expression *_modulus() const;
+    virtual Expression *_power(Expression &power) const;
 };
 
 #endif /* EXPRESSION_HPP */

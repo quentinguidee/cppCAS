@@ -114,6 +114,8 @@ TEST_CASE("Power", "[CORE]")
     REQUIRE(power.opposite()->toString() == "-2^3");
 
     REQUIRE(power.absoluteValue()->toString() == "2^3");
+
+    REQUIRE(Expression::from("x^0")->simplified()->toString() == "1");
 }
 
 TEST_CASE("Absolute value", "[CORE]")

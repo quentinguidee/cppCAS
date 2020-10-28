@@ -14,6 +14,8 @@ public:
     Power(const Power &power);
     ~Power() {}
 
+    Expression *simplified() const override;
+
     Expression *clone() const override { return new Power(*this); }
 
     std::string toString() const override;
