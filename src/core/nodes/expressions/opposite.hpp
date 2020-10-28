@@ -28,6 +28,8 @@ public:
     bool isStrictlyPositive() const { return argument.isStrictlyNegative(); }
     bool isStrictlyNegative() const { return argument.isStrictlyPositive(); }
 
+    bool isOne() const override { throw TODO(); }
+
     bool isEven() const override { return argument.isEven(); }
     bool isOdd() const override { return argument.isOdd(); }
 

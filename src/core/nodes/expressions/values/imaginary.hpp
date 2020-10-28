@@ -24,6 +24,8 @@ public:
     bool isZero() const override { throw TODO(); }
     bool isNegative() const override { throw TODO(); }
 
+    bool isOne() const override { return false; }
+
     bool isRealComponentPositive() const { return value.isPositive(); }
     bool isRealComponentZero() const { return value.isZero(); }
     bool isRealComponentNegative() const { return value.isNegative(); }

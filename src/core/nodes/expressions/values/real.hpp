@@ -28,6 +28,8 @@ public:
     bool isZero() const override { return value == 0; }
     bool isNegative() const override { return value <= 0; }
 
+    bool isOne() const override { return value == 1; }
+
     bool isStrictlyPositive() const { return value > 0; }
     bool isStrictlyNegative() const { return value < 0; }
 

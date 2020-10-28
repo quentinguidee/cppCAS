@@ -23,6 +23,8 @@ public:
     virtual bool isZero() const = 0;
     virtual bool isNegative() const = 0;
 
+    virtual bool isOne() const = 0;
+
     bool isStrictlyPositive() const { return isPositive() && !isZero(); }
     bool isStrictlyNegative() const { return isNegative() && !isZero(); }
 

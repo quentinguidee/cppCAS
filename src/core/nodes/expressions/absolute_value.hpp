@@ -1,6 +1,7 @@
 #ifndef ABSOLUTE_VALUE_HPP
 #define ABSOLUTE_VALUE_HPP
 
+#include "exceptions/todo.hpp"
 #include "expression.hpp"
 
 class AbsoluteValue : public Expression
@@ -23,6 +24,8 @@ public:
     bool isPositive() const override { return true; }
     bool isZero() const override { return argument.isZero(); }
     bool isNegative() const override { return false; }
+
+    bool isOne() const override { throw TODO(); }
 
     bool isStrictlyPositive() const { return !argument.isZero(); }
     bool isStrictlyNegative() const { return false; }

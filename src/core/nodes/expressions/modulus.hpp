@@ -22,6 +22,8 @@ public:
     bool isZero() const override { return argument.isZero(); }
     bool isNegative() const override { return false; }
 
+    bool isOne() const override { throw TODO(); }
+
     bool isEven() const override { throw TODO(); }
     bool isOdd() const override { throw TODO(); }
 

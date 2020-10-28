@@ -1,6 +1,7 @@
 #ifndef POWER_HPP
 #define POWER_HPP
 
+#include "exceptions/todo.hpp"
 #include "expression.hpp"
 
 class Power : public Expression
@@ -24,6 +25,8 @@ public:
     bool isPositive() const override;
     bool isZero() const override { return base.isZero(); }
     bool isNegative() const override;
+
+    bool isOne() const override { throw TODO(); }
 
     bool isEven() const override { return false; }  // TODO
     bool isOdd() const override { return false; }   // TODO
