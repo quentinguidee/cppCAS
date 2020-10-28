@@ -5,6 +5,11 @@ Opposite::Opposite(Expression &argument) :
 {
 }
 
+Opposite::Opposite(const Opposite &opposite) :
+    argument(*opposite.argument.clone())
+{
+}
+
 std::string Opposite::toString() const
 {
     return "-" + argument.toString();

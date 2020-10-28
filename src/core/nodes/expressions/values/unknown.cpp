@@ -10,6 +10,11 @@ Unknown::Unknown(const std::string symbol) :
 {
 }
 
+Unknown::Unknown(const Unknown &unknown) :
+    symbol(unknown.symbol)
+{
+}
+
 Expression *Unknown::differentiated(Unknown unknown) const
 {
     return symbol == unknown.getSymbol() ? new Integer(1) : new Integer(0);

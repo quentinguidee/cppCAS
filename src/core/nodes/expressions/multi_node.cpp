@@ -10,6 +10,13 @@ MultiNode::MultiNode(char symbol, std::string latexSymbol, std::initializer_list
 {
 }
 
+MultiNode::MultiNode(const MultiNode &multiNode) :
+    symbol(multiNode.symbol),
+    latexSymbol(multiNode.latexSymbol),
+    children(multiNode.children)
+{
+}
+
 std::string MultiNode::toString() const
 {
     std::string string = "";

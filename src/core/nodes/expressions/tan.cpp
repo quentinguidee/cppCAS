@@ -9,6 +9,11 @@ Tan::Tan(Expression &argument) :
 {
 }
 
+Tan::Tan(const Tan &tan) :
+    argument(*tan.argument.clone())
+{
+}
+
 std::string Tan::toString() const
 {
     return "tan(" + argument.toString() + ")";

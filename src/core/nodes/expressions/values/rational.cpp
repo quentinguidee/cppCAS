@@ -9,3 +9,8 @@ Rational::Rational(int value) :
     Real(value)
 {
 }
+
+Rational::Rational(const Rational &rational) :
+    Real(rational.value)
+{
+}

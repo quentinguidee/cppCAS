@@ -12,7 +12,10 @@ private:
 
 public:
     Unknown(const std::string symbol = "x");
+    Unknown(const Unknown &unknown);
     ~Unknown() {}
+
+    Expression *clone() const override { return new Unknown(*this); }
 
     std::string getSymbol() const { return symbol; }
 

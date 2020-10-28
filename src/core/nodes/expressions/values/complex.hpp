@@ -14,7 +14,10 @@ private:
 
 public:
     Complex(Real real, Imaginary imaginary);
+    Complex(const Complex &complex);
     ~Complex() {}
+
+    Expression *clone() const override { return new Complex(*this); }
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }

@@ -13,7 +13,10 @@ private:
 
 public:
     Differential(Expression &argument, Unknown unknown);
+    Differential(const Differential &differential);
     ~Differential() {}
+
+    Expression *clone() const override { return new Differential(*this); }
 
     Expression *simplified() const override { return argument.differentiated(unknown); }
 

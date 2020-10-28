@@ -12,7 +12,10 @@ private:
 
 public:
     Imaginary(Real value);
+    Imaginary(const Imaginary &imaginary);
     ~Imaginary() {}
+
+    Expression *clone() const override { return new Imaginary(*this); }
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }

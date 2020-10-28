@@ -10,7 +10,10 @@ private:
 
 public:
     AbsoluteValue(Expression &argument);
+    AbsoluteValue(const AbsoluteValue &absoluteValue);
     ~AbsoluteValue() {}
+
+    Expression *clone() const override { return new AbsoluteValue(*this); }
 
     Expression *simplified() const override { return argument.absoluteValue(); }
 

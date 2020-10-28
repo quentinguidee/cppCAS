@@ -12,7 +12,10 @@ private:
 
 public:
     Division(Expression &numerator, Expression &denominator);
+    Division(const Division &division);
     ~Division() {}
+
+    Expression *clone() const override { return new Division(*this); }
 
     std::string toString() const override;
     std::string toLaTeX() const override;

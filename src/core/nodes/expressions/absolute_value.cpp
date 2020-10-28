@@ -7,6 +7,11 @@ AbsoluteValue::AbsoluteValue(Expression &argument) :
 {
 }
 
+AbsoluteValue::AbsoluteValue(const AbsoluteValue &absoluteValue) :
+    argument(*absoluteValue.argument.clone())
+{
+}
+
 std::string AbsoluteValue::toString() const
 {
     return "|" + argument.toString() + "|";

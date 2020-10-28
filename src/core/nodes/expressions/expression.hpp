@@ -13,6 +13,7 @@ public:
     ~Expression() {}
 
     Expression &self() const { return const_cast<Expression &>(*this); }
+    virtual Expression *clone() const = 0;
 
     virtual Expression *simplified() const { return &self(); }
 

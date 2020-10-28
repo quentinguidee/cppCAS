@@ -12,7 +12,10 @@ private:
 
 public:
     Sin(Expression &argument);
+    Sin(const Sin &sin);
     ~Sin() {}
+
+    Expression *clone() const override { return new Sin(*this); }
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }

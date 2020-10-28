@@ -8,6 +8,11 @@ Sin::Sin(Expression &argument) :
 {
 }
 
+Sin::Sin(const Sin &sin) :
+    argument(*sin.argument.clone())
+{
+}
+
 std::string Sin::toString() const
 {
     return "sin(" + argument.toString() + ")";

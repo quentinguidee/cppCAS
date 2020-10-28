@@ -7,7 +7,10 @@ class Natural : public Integer
 {
 public:
     Natural(int value);
+    Natural(const Natural &natural);
     ~Natural() {}
+
+    Expression *clone() const override { return new Natural(*this); }
 
     Integer toInteger() const { return Integer(value); }
 

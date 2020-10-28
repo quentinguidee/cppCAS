@@ -8,6 +8,12 @@ Integral::Integral(Expression &argument, Unknown unknown) :
 {
 }
 
+Integral::Integral(const Integral &integral) :
+    argument(*integral.argument.clone()),
+    unknown(Unknown(integral.unknown))
+{
+}
+
 std::string Integral::toString() const
 {
     return "∫" + argument.toString() + " d" + unknown.toString();

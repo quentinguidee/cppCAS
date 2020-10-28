@@ -12,7 +12,10 @@ class Multiplication : public MultiNode
 {
 public:
     Multiplication(std::initializer_list<std::reference_wrapper<Expression>> children);
+    Multiplication(const Multiplication &multiplication);
     ~Multiplication() {}
+
+    Expression *clone() const override { return new Multiplication(*this); }
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }

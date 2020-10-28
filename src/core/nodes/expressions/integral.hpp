@@ -13,7 +13,10 @@ private:
 
 public:
     Integral(Expression &argument, Unknown unknown);
+    Integral(const Integral &integral);
     ~Integral() {}
+
+    Expression *clone() const override { return new Integral(*this); }
 
     Expression *simplified() const override { return argument.integrated(unknown); }
 

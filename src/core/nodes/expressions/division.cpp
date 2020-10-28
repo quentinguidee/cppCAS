@@ -6,6 +6,12 @@ Division::Division(Expression &numerator, Expression &denominator) :
 {
 }
 
+Division::Division(const Division &division) :
+    numerator(*division.numerator.clone()),
+    denominator(*division.denominator.clone())
+{
+}
+
 std::string Division::toString() const
 {
     return numerator.toString() + "/" + denominator.toString();

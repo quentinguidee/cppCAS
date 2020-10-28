@@ -4,3 +4,8 @@ Multiplication::Multiplication(std::initializer_list<std::reference_wrapper<Expr
     MultiNode('*', "\\cdot ", children)
 {
 }
+
+Multiplication::Multiplication(const Multiplication &multiplication) :
+    MultiNode(multiplication)
+{
+}

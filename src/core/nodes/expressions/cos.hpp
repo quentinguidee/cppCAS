@@ -11,7 +11,10 @@ private:
 
 public:
     Cos(Expression &argument);
+    Cos(const Cos &cos);
     ~Cos() {}
+
+    Expression *clone() const override { return new Cos(*this); }
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }

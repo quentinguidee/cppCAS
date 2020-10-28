@@ -14,7 +14,10 @@ protected:
 public:
     Real(double value);
     Real(int value);
+    Real(const Real &real);
     ~Real() {}
+
+    Expression *clone() const override { return new Real(*this); }
 
     int *toIntIfPossible() const;
 

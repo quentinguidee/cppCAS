@@ -11,7 +11,10 @@ private:
 
 public:
     Power(Expression &base, Expression &power);
+    Power(const Power &power);
     ~Power() {}
+
+    Expression *clone() const override { return new Power(*this); }
 
     std::string toString() const override;
     std::string toLaTeX() const override;

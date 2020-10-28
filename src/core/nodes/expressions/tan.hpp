@@ -11,7 +11,10 @@ private:
 
 public:
     Tan(Expression &argument);
+    Tan(const Tan &tan);
     ~Tan() {}
+
+    Expression *clone() const override { return new Tan(*this); }
 
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }

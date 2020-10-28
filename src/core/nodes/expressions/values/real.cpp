@@ -13,6 +13,11 @@ Real::Real(int value) :
 {
 }
 
+Real::Real(const Real &real) :
+    value(real.value)
+{
+}
+
 Expression *Real::absoluteValue() const
 {
     return isPositive() ? &self() : opposite();

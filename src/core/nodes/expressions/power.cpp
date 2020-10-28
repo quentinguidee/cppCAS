@@ -6,6 +6,12 @@ Power::Power(Expression &base, Expression &power) :
 {
 }
 
+Power::Power(const Power &power) :
+    base(*power.base.clone()),
+    power(*power.power.clone())
+{
+}
+
 std::string Power::toString() const
 {
     return base.toString() + "^" + power.toString();

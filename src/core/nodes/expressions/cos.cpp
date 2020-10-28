@@ -9,6 +9,11 @@ Cos::Cos(Expression &argument) :
 {
 }
 
+Cos::Cos(const Cos &cos) :
+    argument(*cos.argument.clone())
+{
+}
+
 std::string Cos::toString() const
 {
     return "cos(" + argument.toString() + ")";

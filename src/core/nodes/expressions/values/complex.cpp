@@ -6,6 +6,12 @@ Complex::Complex(Real real, Imaginary imaginary) :
 {
 }
 
+Complex::Complex(const Complex &complex) :
+    real(Real(complex.real)),
+    imaginary(Imaginary(complex.imaginary))
+{
+}
+
 std::string Complex::toString() const
 {
     return real.toString() + "+" + imaginary.toString();

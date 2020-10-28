@@ -5,6 +5,11 @@ Imaginary::Imaginary(Real value) :
 {
 }
 
+Imaginary::Imaginary(const Imaginary &imaginary) :
+    value(imaginary.value)
+{
+}
+
 std::string Imaginary::toString() const
 {
     return value.toString() + "i";

@@ -10,7 +10,10 @@ class Integer : public Rational
 {
 public:
     Integer(int value);
+    Integer(const Integer &integer);
     ~Integer() {}
+
+    Expression *clone() const override { return new Integer(*this); }
 
     std::string toString() const override { return std::to_string((int)round(value)); }
     std::string toLaTeX() const override { return std::to_string((int)round(value)); }

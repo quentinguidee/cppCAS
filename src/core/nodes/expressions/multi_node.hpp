@@ -16,6 +16,7 @@ private:
 
 public:
     MultiNode(char symbol, std::string latexSymbol, std::initializer_list<std::reference_wrapper<Expression>> children);
+    MultiNode(const MultiNode &multiNode);
     ~MultiNode() {}
 
     virtual bool isPositive() const override = 0;

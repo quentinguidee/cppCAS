@@ -11,7 +11,10 @@ private:
 
 public:
     Opposite(Expression &argument);
+    Opposite(const Opposite &opposite);
     ~Opposite() {}
+
+    Expression *clone() const override { return new Opposite(*this); }
 
     Expression *simplified() const override { return argument.opposite(); }
 
