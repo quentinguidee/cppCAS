@@ -28,6 +28,8 @@ public:
 
     std::string toString() const override;
     std::string toLaTeX() const override;
+
+    Complex conjuguated() const;
 };
 
 #endif /* COMPLEX_HPP */

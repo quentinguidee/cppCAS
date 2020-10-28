@@ -89,6 +89,8 @@ TEST_CASE("Complex", "[CORE]")
 
     REQUIRE(complex.toString() == "3.000000+3.000000i");
     REQUIRE(complex.toLaTeX() == "3.000000+3.000000i");
+
+    REQUIRE(complex.conjuguated().toString() == "3.000000-3.000000i");
 }
 
 TEST_CASE("Power", "[CORE]")
