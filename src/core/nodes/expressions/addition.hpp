@@ -8,6 +8,7 @@ class Addition : public MultiNode
 {
 public:
     Addition(std::initializer_list<std::reference_wrapper<Expression>> children);
+    Addition(std::vector<std::reference_wrapper<Expression>> children);
     Addition(const Addition &addition);
     ~Addition() {}
 

@@ -208,6 +208,8 @@ TEST_CASE("Division", "[CORE]")
     REQUIRE(division.isPositive() == false);
     REQUIRE(division.isZero() == false);
     REQUIRE(division.isNegative() == true);
+
+    REQUIRE(division.modulus()->toString() == "|2|/|-3|");
 }
 
 TEST_CASE("Multiplication", "[CORE]")
@@ -218,6 +220,8 @@ TEST_CASE("Multiplication", "[CORE]")
 
     REQUIRE(multiplication.toString() == "1*2*1");
     REQUIRE(multiplication.toLaTeX() == "1\\cdot 2\\cdot 1");
+
+    REQUIRE(multiplication.modulus()->toString() == "|1|*|2|*|1|");
 }
 
 TEST_CASE("Addition", "[CORE]")

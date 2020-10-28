@@ -60,3 +60,10 @@ bool Division::isNegative() const
     }
     return false;
 }
+
+Expression *Division::_modulus() const
+{
+    return new Division(
+        *numerator.modulus(),
+        *denominator.modulus());
+}

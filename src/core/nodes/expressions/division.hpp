@@ -26,6 +26,8 @@ public:
 
     bool isEven() const override { throw TODO(); }
     bool isOdd() const override { throw TODO(); }
+
+    Expression *_modulus() const override;
 };
 
 #endif /* DIVISION_HPP */

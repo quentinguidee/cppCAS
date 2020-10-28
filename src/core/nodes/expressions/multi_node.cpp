@@ -10,6 +10,13 @@ MultiNode::MultiNode(char symbol, std::string latexSymbol, std::initializer_list
 {
 }
 
+MultiNode::MultiNode(char symbol, std::string latexSymbol, std::vector<std::reference_wrapper<Expression>> children) :
+    symbol(symbol),
+    latexSymbol(latexSymbol),
+    children(children)
+{
+}
+
 MultiNode::MultiNode(const MultiNode &multiNode) :
     symbol(multiNode.symbol),
     latexSymbol(multiNode.latexSymbol),
