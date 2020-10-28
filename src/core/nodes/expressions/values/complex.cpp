@@ -1,5 +1,10 @@
 #include "complex.hpp"
 
+#include "../addition.hpp"
+#include "../division.hpp"
+#include "../power.hpp"
+#include "integer.hpp"
+
 Complex::Complex(Real real, Imaginary imaginary) :
     real(real),
     imaginary(imaginary)
@@ -49,4 +54,13 @@ std::string Complex::toLaTeX() const
 Complex Complex::conjuguated() const
 {
     return Complex(real, dynamic_cast<Imaginary &>(*imaginary.opposite()));
+}
+
+Expression *Complex::modulus() const
+{
+    return new Power(
+        *new Addition{
+            *new Power(*real.clone(), *new Integer(2)),
+            *new Power(*imaginary.getReal().clone(), *new Integer(2))},
+        *new Division(*new Integer(1), *new Integer(2)));
 }

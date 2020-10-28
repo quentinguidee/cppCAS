@@ -17,6 +17,8 @@ public:
 
     Expression *clone() const override { return new Imaginary(*this); }
 
+    const Real &getReal() const { return value; }
+
     // An imaginary number is unsigned. Return "undefined".
     bool isPositive() const override { throw TODO(); }
     bool isZero() const override { throw TODO(); }
