@@ -30,7 +30,8 @@ public:
     std::string toLaTeX() const override;
 
     Complex conjuguated() const;
-    Expression *modulus() const;  // TODO: Make a modulus operator.
+
+    Expression *_modulus() const override;
 };
 
 #endif /* COMPLEX_HPP */

@@ -6,6 +6,7 @@ set(HEADERS
     division.hpp
     expression.hpp
     integral.hpp
+    modulus.hpp
     multi_node.hpp
     multiplication.hpp
     opposite.hpp
@@ -22,6 +23,7 @@ set(SOURCES
     division.cpp
     expression.cpp
     integral.cpp
+    modulus.cpp
     multi_node.cpp
     multiplication.cpp
     opposite.cpp

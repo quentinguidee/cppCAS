@@ -13,6 +13,7 @@
 #include <core/nodes/expressions/differential.hpp>
 #include <core/nodes/expressions/division.hpp>
 #include <core/nodes/expressions/integral.hpp>
+#include <core/nodes/expressions/modulus.hpp>
 #include <core/nodes/expressions/multiplication.hpp>
 #include <core/nodes/expressions/opposite.hpp>
 #include <core/nodes/expressions/power.hpp>
@@ -260,6 +261,16 @@ TEST_CASE("Integral", "[CORE]")
 
     REQUIRE(integral.toString() == "∫x dx");
     REQUIRE(integral.toLaTeX() == "\\int{x dx}");
+}
+
+TEST_CASE("Modulus", "[CORE]")
+{
+    Complex complex(Real(1), Imaginary(2));
+    Modulus modulus(complex);
+
+    REQUIRE(modulus.toString() == "|1.000000+2.000000i|");
+    REQUIRE(modulus.toLaTeX() == "\\left|1.000000+2.000000i\\right|");
+    REQUIRE(modulus.simplified()->toString() == "1.000000^2+2.000000^2^1/2");
 }
 
 TEST_CASE("Lexer", "[PARSER]")

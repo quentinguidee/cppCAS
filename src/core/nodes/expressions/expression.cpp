@@ -4,6 +4,7 @@
 #include "assert.h"
 #include "differential.hpp"
 #include "integral.hpp"
+#include "modulus.hpp"
 #include "opposite.hpp"
 #include "values/unknown.hpp"
 
@@ -27,6 +28,11 @@ Expression* Expression::integrated(Unknown unknown) const
     return Expression::_integrated(unknown)->simplified();
 }
 
+Expression* Expression::modulus() const
+{
+    return Expression::_modulus()->simplified();
+}
+
 Expression* Expression::_opposite() const
 {
     return new Opposite(*clone());
@@ -45,4 +51,9 @@ Expression* Expression::_differentiated(Unknown unknown) const
 Expression* Expression::_integrated(Unknown unknown) const
 {
     return new Integral(*clone(), unknown);
+}
+
+Expression* Expression::_modulus() const
+{
+    return new Modulus(*clone());
 }

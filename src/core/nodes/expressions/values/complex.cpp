@@ -56,7 +56,7 @@ Complex Complex::conjuguated() const
     return Complex(real, dynamic_cast<Imaginary &>(*imaginary.opposite()));
 }
 
-Expression *Complex::modulus() const
+Expression *Complex::_modulus() const
 {
     return new Power(
         *new Addition{

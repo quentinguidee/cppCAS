@@ -31,6 +31,7 @@ public:
     Expression *absoluteValue() const;
     Expression *differentiated(Unknown unknown) const;
     Expression *integrated(Unknown unknown) const;
+    Expression *modulus() const;
 
     // Do not call these methods:
 
@@ -38,6 +39,7 @@ public:
     virtual Expression *_absoluteValue() const;
     virtual Expression *_differentiated(Unknown unknown) const;
     virtual Expression *_integrated(Unknown unknown) const;
+    virtual Expression *_modulus() const;
 };
 
 #endif /* EXPRESSION_HPP */
