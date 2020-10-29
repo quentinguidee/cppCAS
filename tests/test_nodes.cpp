@@ -7,6 +7,9 @@
 #include "catch.hpp"
 #endif
 
+#include <algebra/sets/finite_set.hpp>
+#include <algebra/sets/infinite_set.hpp>
+#include <algebra/sets/set.hpp>
 #include <core/nodes/expressions/absolute_value.hpp>
 #include <core/nodes/expressions/addition.hpp>
 #include <core/nodes/expressions/cos.hpp>
@@ -337,4 +340,17 @@ TEST_CASE("Parse Tree", "[PARSER]")
     tokens = Lexer::execute("sin(x)");
     tokens = Parser::reorderTokens(tokens);
     REQUIRE(ParseTree(tokens).getExpression().toString() == "sin(x)");
+}
+
+TEST_CASE("Sets", "[ALGEBRA]")
+{
+    FiniteSet finiteSet{*new Integer(1), *new Integer(2), *new Integer(3)};
+    REQUIRE(finiteSet.toString() == "{1,2,3}");
+    REQUIRE(finiteSet.toLaTeX() == "\\left\\{1,2,3\\right\\}");
+    REQUIRE(finiteSet.simplified()->toString() == "{1,2,3}");
+
+    InfiniteSet infiniteSet("A");
+    REQUIRE(infiniteSet.toString() == "A");
+    REQUIRE(infiniteSet.toLaTeX() == "A");
+    REQUIRE(infiniteSet.simplified()->toString() == "A");
 }
