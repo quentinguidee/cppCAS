@@ -20,6 +20,7 @@
 #include <core/nodes/expressions/sin.hpp>
 #include <core/nodes/expressions/tan.hpp>
 #include <core/nodes/expressions/values/complex.hpp>
+#include <core/nodes/expressions/values/constant.hpp>
 #include <core/nodes/expressions/values/imaginary.hpp>
 #include <core/nodes/expressions/values/integer.hpp>
 #include <core/nodes/expressions/values/unknown.hpp>
@@ -253,6 +254,16 @@ TEST_CASE("Unknown", "[CORE]")
 
     REQUIRE(x.integrated(x)->toString() == "x^2/2");
     REQUIRE(x.integrated(y)->toString() == "∫x dy");
+}
+
+TEST_CASE("Constant", "[CORE]")
+{
+    Constant constant("e");
+
+    REQUIRE(constant.toString() == "e");
+    REQUIRE(constant.isPositive() == true);
+    REQUIRE(constant.isZero() == false);
+    REQUIRE(constant.isNegative() == false);
 }
 
 TEST_CASE("Differential", "[CORE]")
