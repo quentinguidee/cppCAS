@@ -1,6 +1,8 @@
 #ifndef CONSTANT_HPP
 #define CONSTANT_HPP
 
+#include <math.h>
+
 #include <map>
 #include <string>
 
