@@ -21,7 +21,7 @@ public:
 
     // An imaginary number is unsigned. Return "undefined".
     bool isPositive() const override { throw TODO(); }
-    bool isZero() const override { throw TODO(); }
+    bool isZero() const override;
     bool isNegative() const override { throw TODO(); }
 
     bool isOne() const override { return false; }

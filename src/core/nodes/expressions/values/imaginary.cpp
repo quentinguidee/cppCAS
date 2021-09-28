@@ -10,6 +10,11 @@ Imaginary::Imaginary(const Imaginary& imaginary) :
 {
 }
 
+bool Imaginary::isZero() const
+{
+    return value.isZero();
+}
+
 std::string Imaginary::toString() const
 {
     return value.toString() + "i";

@@ -88,9 +88,21 @@ TEST_CASE("Real", "[CORE]")
 
 TEST_CASE("Complex", "[CORE]")
 {
-    Real re(3);
-    Imaginary im(re);
-    Complex complex(re, im);
+    Real re0(0);
+    Real re1(1);
+    Real re3(3);
+    Imaginary im0(0);
+    Imaginary im3(re3);
+    Complex complex(re3, im3);
+    Complex complexOne(re1, im0);
+    Complex complexZero(re0, im0);
+
+    REQUIRE(complex.isOne() == false);
+    REQUIRE(complexOne.isOne() == true);
+    REQUIRE(complex.isZero() == false);
+    REQUIRE(complexZero.isZero() == true);
+    REQUIRE(complexOne.isPositive() == true);
+    REQUIRE(complexOne.isNegative() == false);
 
     REQUIRE(complex.toString() == "3.000000+3.000000i");
     REQUIRE(complex.toLaTeX() == "3.000000+3.000000i");

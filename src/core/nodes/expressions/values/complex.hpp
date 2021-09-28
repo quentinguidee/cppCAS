@@ -19,11 +19,11 @@ public:
 
     Expression *clone() const override { return new Complex(*this); }
 
-    bool isPositive() const override { throw TODO(); }
-    bool isZero() const override { throw TODO(); }
-    bool isNegative() const override { throw TODO(); }
+    bool isPositive() const override;
+    bool isZero() const override;
+    bool isNegative() const override;
 
-    bool isOne() const override { return real.isOne() && imaginary.isZero(); }
+    bool isOne() const override;
 
     bool isEven() const override { throw TODO(); }
     bool isOdd() const override { throw TODO(); }

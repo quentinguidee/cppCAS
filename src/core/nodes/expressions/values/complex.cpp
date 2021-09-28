@@ -17,6 +17,34 @@ Complex::Complex(const Complex &complex) :
 {
 }
 
+bool Complex::isPositive() const
+{
+    if (imaginary.isZero())
+    {
+        return real.isPositive();
+    }
+    throw TODO();
+}
+
+bool Complex::isZero() const
+{
+    return real.isZero() && imaginary.isZero();
+}
+
+bool Complex::isNegative() const
+{
+    if (imaginary.isZero())
+    {
+        return real.isNegative();
+    }
+    throw TODO();
+}
+
+bool Complex::isOne() const
+{
+    return real.isOne() && imaginary.isZero();
+}
+
 std::string Complex::toString() const
 {
     if (imaginary.isRealComponentNegative())
